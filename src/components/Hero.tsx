@@ -7,7 +7,6 @@ export default function Hero() {
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
-
     const onMouseMove = (e: MouseEvent) => {
       const rect = hero.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -15,7 +14,6 @@ export default function Hero() {
       hero.style.setProperty("--mouse-x", `${x}%`);
       hero.style.setProperty("--mouse-y", `${y}%`);
     };
-
     hero.addEventListener("mousemove", onMouseMove);
     return () => hero.removeEventListener("mousemove", onMouseMove);
   }, []);
@@ -24,110 +22,58 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-5 sm:px-8"
       style={{ paddingTop: "80px" }}
     >
-      {/* Background blobs */}
-      <div
-        className="blob"
-        style={{
-          width: "600px",
-          height: "600px",
-          background: "var(--cyan)",
-          top: "-100px",
-          right: "-200px",
-          opacity: 0.07,
-        }}
-      />
-      <div
-        className="blob"
-        style={{
-          width: "400px",
-          height: "400px",
-          background: "#0066ff",
-          bottom: "100px",
-          left: "-100px",
-          opacity: 0.06,
-        }}
-      />
+      {/* Blobs */}
+      <div className="blob" style={{ width: "40vw", height: "40vw", minWidth: "200px", background: "var(--yellow)", top: "-80px", right: "-100px", opacity: 0.06 }} />
+      <div className="blob" style={{ width: "35vw", height: "35vw", minWidth: "160px", background: "var(--blue)", bottom: "80px", left: "-80px", opacity: 0.05 }} />
 
-      {/* Grid lines */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      />
+      {/* Grid */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center animate-stagger">
+      <div className="relative z-10 w-full max-w-5xl mx-auto text-center animate-stagger">
         {/* Badge */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-6 sm:mb-8">
           <span className="badge">Available for projects · 2025</span>
         </div>
 
         {/* Headline */}
         <h1
-          className="font-extrabold leading-none tracking-tight mb-6"
-          style={{ fontSize: "clamp(3rem, 8vw, 7rem)", lineHeight: 1.0 }}
+          className="font-extrabold tracking-tight mb-5 sm:mb-6"
+          style={{ fontSize: "clamp(2.4rem, 8vw, 7rem)", lineHeight: 1.05 }}
         >
           Elevating{" "}
-          <span
-            style={{
-              fontStyle: "italic",
-              color: "var(--cyan)",
-              fontWeight: 400,
-            }}
-          >
-            visions
-          </span>{" "}
+          <span style={{ fontStyle: "italic", color: "var(--yellow)", fontWeight: 400 }}>visions</span>{" "}
           into
-          <br />
-          extraordinary digital
-          <br />
-          reality.
+          <br className="hidden sm:block" />
+          {" "}extraordinary digital
+          <br className="hidden sm:block" />
+          {" "}reality.
         </h1>
 
         {/* Subheadline */}
         <p
-          className="mx-auto mb-10 leading-relaxed"
-          style={{
-            color: "var(--text-secondary)",
-            maxWidth: "580px",
-            fontSize: "1.1rem",
-          }}
+          className="mx-auto mb-8 sm:mb-10 leading-relaxed text-sm sm:text-base lg:text-lg"
+          style={{ color: "var(--text-secondary)", maxWidth: "560px" }}
         >
           A high-performance creative team for businesses seeking to dominate
-          the digital landscape — websites, apps, marketing & brand design.
+          the digital landscape — websites, apps, marketing &amp; brand design.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4 justify-center mb-16">
-          <a href="#contact" className="btn-primary">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-12 sm:mb-16">
+          <a href="#contact" className="btn-primary justify-center">
             Start Your Journey
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
-          <a href="#process" className="btn-outline">
+          <a href="#process" className="btn-outline justify-center">
             Our Methodology
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
@@ -135,111 +81,33 @@ export default function Hero() {
 
         {/* Scroll indicator */}
         <div className="flex flex-col items-center gap-2">
-          <span
-            className="font-mono text-xs tracking-widest uppercase"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            Scroll
-          </span>
-          <div
-            className="w-px h-12"
-            style={{
-              background:
-                "linear-gradient(to bottom, var(--cyan), transparent)",
-              animation: "scroll-line 2s ease-in-out infinite",
-            }}
-          />
+          <span className="font-mono text-xs tracking-widest uppercase" style={{ color: "var(--text-secondary)" }}>Scroll</span>
+          <div className="w-px h-10 sm:h-12"
+            style={{ background: "linear-gradient(to bottom, var(--yellow), transparent)", animation: "scroll-line 2s ease-in-out infinite" }} />
         </div>
       </div>
 
-      {/* Floating UI mockup cards */}
-      <div
-        className="absolute left-8 top-1/2 -translate-y-1/2 hidden xl:block"
-        style={{
-          animation: "float 6s ease-in-out infinite",
-        }}
-      >
-        <div
-          className="glow-card rounded-2xl p-4 w-52"
-          style={{ opacity: 0.7 }}
-        >
+      {/* Floating cards — xl only */}
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden xl:block" style={{ animation: "float 6s ease-in-out infinite" }}>
+        <div className="glow-card rounded-2xl p-4 w-48" style={{ opacity: 0.7 }}>
           <div className="flex items-center gap-2 mb-3">
-            <div
-              className="w-2 h-2 rounded-full"
-              style={{ background: "var(--cyan)" }}
-            />
-            <span
-              className="text-xs font-mono"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              ACTIVE PROJECT
-            </span>
+            <div className="w-2 h-2 rounded-full" style={{ background: "var(--yellow)" }} />
+            <span className="text-xs font-mono" style={{ color: "var(--text-secondary)" }}>ACTIVE PROJECT</span>
           </div>
           <div className="space-y-2">
-            <div
-              className="h-2 rounded-full"
-              style={{
-                background: "rgba(255,255,255,0.1)",
-                width: "80%",
-              }}
-            />
-            <div
-              className="h-2 rounded-full"
-              style={{
-                background: "rgba(0,245,212,0.3)",
-                width: "60%",
-              }}
-            />
-            <div
-              className="h-2 rounded-full"
-              style={{
-                background: "rgba(255,255,255,0.1)",
-                width: "90%",
-              }}
-            />
+            {[80, 60, 90].map((w, i) => (
+              <div key={i} className="h-1.5 rounded-full" style={{ width: `${w}%`, background: i === 1 ? "rgba(255,193,7,0.4)" : "rgba(255,255,255,0.1)" }} />
+            ))}
           </div>
         </div>
       </div>
-
-      <div
-        className="absolute right-8 top-1/3 hidden xl:block"
-        style={{
-          animation: "float 8s ease-in-out infinite reverse",
-        }}
-      >
-        <div
-          className="glow-card rounded-2xl p-4 w-44"
-          style={{ opacity: 0.6 }}
-        >
-          <div
-            className="text-3xl font-bold mb-1"
-            style={{ color: "var(--cyan)" }}
-          >
-            +120%
-          </div>
-          <div
-            className="text-xs font-mono"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            AVG CLIENT GROWTH
-          </div>
-          <svg
-            className="mt-3"
-            width="100%"
-            height="40"
-            viewBox="0 0 100 40"
-            fill="none"
-          >
-            <polyline
-              points="0,35 20,28 40,20 60,10 80,15 100,5"
-              stroke="var(--cyan)"
-              strokeWidth="2"
-              fill="none"
-            />
-            <polyline
-              points="0,35 20,28 40,20 60,10 80,15 100,5 100,40 0,40"
-              fill="rgba(0,245,212,0.1)"
-            />
+      <div className="absolute right-6 top-1/3 hidden xl:block" style={{ animation: "float 8s ease-in-out infinite reverse" }}>
+        <div className="glow-card rounded-2xl p-4 w-44" style={{ opacity: 0.6 }}>
+          <div className="text-3xl font-bold mb-1" style={{ color: "var(--yellow)" }}>+120%</div>
+          <div className="text-xs font-mono" style={{ color: "var(--text-secondary)" }}>AVG CLIENT GROWTH</div>
+          <svg className="mt-3" width="100%" height="36" viewBox="0 0 100 36" fill="none">
+            <polyline points="0,32 20,25 40,18 60,8 80,13 100,3" stroke="var(--yellow)" strokeWidth="2" fill="none" />
+            <polyline points="0,32 20,25 40,18 60,8 80,13 100,3 100,36 0,36" fill="rgba(255,193,7,0.08)" />
           </svg>
         </div>
       </div>

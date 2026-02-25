@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -16,10 +18,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "var(--cyan)" }}>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M2 2h5v5H2V2zM9 2h5v5H9V2zM2 9h5v5H2V9zM9 9h5v5H9V9z" fill="#080c10" />
-                </svg>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" >
+                <Image src="/logo.png" alt="logo" width={42} height={42} />
               </div>
               <span className="font-bold text-lg tracking-tight">
                 INNOLAB<span style={{ color: "var(--cyan)" }}>.</span>

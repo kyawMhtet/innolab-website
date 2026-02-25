@@ -3,15 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --bg-dark: #080c10;
-  --bg-card: #0d1117;
-  --bg-card-hover: #111820;
-  --cyan: #00f5d4;
-  --cyan-dim: #00d4b8;
+  --bg-dark: #080a0f;
+  --bg-card: #0e1118;
+  --bg-card-hover: #131720;
+
+  /* Brand colors from logo */
+  --yellow: #FFC107;
+  --yellow-dim: #e6ac00;
+  --blue: #2563EB;
+  --blue-dim: #1d4ed8;
+
+  /* --cyan aliased to yellow so ALL existing component code works unchanged */
+  --cyan: #FFC107;
+  --cyan-dim: #e6ac00;
+
   --text-primary: #f0f4f8;
   --text-secondary: #8b9ab0;
   --border: rgba(255, 255, 255, 0.06);
-  --border-hover: rgba(0, 245, 212, 0.3);
+  --border-hover: rgba(255, 193, 7, 0.3);
 }
 
 * {
@@ -47,10 +56,10 @@ body::before {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg-dark); }
-::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 2px; }
 
 /* Selection */
-::selection { background: rgba(0, 245, 212, 0.2); color: var(--cyan); }
+::selection { background: rgba(255, 193, 7, 0.2); color: var(--yellow); }
 
 /* Animated gradient background blobs */
 .blob {
@@ -68,18 +77,16 @@ body::before {
   background: var(--bg-card);
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
-
 .glow-card::before {
   content: '';
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(0,245,212,0.15), transparent, rgba(0,245,212,0.05));
+  background: linear-gradient(135deg, rgba(255,193,7,0.12), transparent, rgba(37,99,235,0.06));
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
 }
-
 .glow-card:hover {
   border-color: var(--border-hover);
   transform: translateY(-2px);
@@ -88,7 +95,7 @@ body::before {
   opacity: 1;
 }
 
-/* Cyan pill badge */
+/* Badge */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -97,20 +104,18 @@ body::before {
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--cyan);
-  border: 1px solid rgba(0, 245, 212, 0.3);
+  color: var(--yellow);
+  border: 1px solid rgba(255, 193, 7, 0.3);
   padding: 4px 12px;
   border-radius: 999px;
-  background: rgba(0, 245, 212, 0.06);
+  background: rgba(255, 193, 7, 0.06);
 }
-
-/* Cyan dot */
 .badge::before {
   content: '';
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--cyan);
+  background: var(--yellow);
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
@@ -119,7 +124,7 @@ body::before {
   50% { opacity: 0.4; transform: scale(0.8); }
 }
 
-/* Stagger animation helpers */
+/* Stagger animations */
 .animate-stagger > * {
   opacity: 0;
   transform: translateY(20px);
@@ -140,7 +145,7 @@ body::before {
   to { opacity: 1; }
 }
 
-/* Section fade in on scroll via intersection observer class */
+/* Scroll reveal */
 .reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -151,21 +156,21 @@ body::before {
   transform: translateY(0);
 }
 
-/* Gradient text */
+/* Gradient text — yellow to blue */
 .gradient-text {
-  background: linear-gradient(135deg, var(--cyan) 0%, #00a8ff 100%);
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--blue) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* CTA button primary */
+/* Primary CTA button — yellow */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--cyan);
-  color: #080c10;
+  background: var(--yellow);
+  color: #080a0f;
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
@@ -175,14 +180,15 @@ body::before {
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  text-decoration: none;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(0, 245, 212, 0.4);
-  background: #00d4b8;
+  box-shadow: 0 0 30px rgba(255, 193, 7, 0.35);
+  background: var(--yellow-dim);
 }
 
-/* CTA button outline */
+/* Outline CTA button */
 .btn-outline {
   display: inline-flex;
   align-items: center;
@@ -198,13 +204,14 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.15);
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
 }
 .btn-outline:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
+  border-color: var(--yellow);
+  color: var(--yellow);
 }
 
-/* Horizontal scroll marquee */
+/* Marquee */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -217,7 +224,7 @@ body::before {
   animation-play-state: paused;
 }
 
-/* Form input */
+/* Form inputs */
 .input-field {
   width: 100%;
   background: rgba(255,255,255,0.04);
@@ -231,12 +238,11 @@ body::before {
   transition: border-color 0.2s ease;
 }
 .input-field:focus {
-  border-color: var(--cyan);
+  border-color: var(--yellow);
 }
 .input-field::placeholder {
   color: var(--text-secondary);
 }
-
 textarea.input-field {
   resize: vertical;
   min-height: 120px;

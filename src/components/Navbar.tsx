@@ -21,7 +21,9 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 768) setMenuOpen(false); };
+    const onResize = () => {
+      if (window.innerWidth >= 768) setMenuOpen(false);
+    };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
@@ -52,7 +54,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Links */}
+        {/* Desktop Nav Links */}
         <ul className="hidden md:flex items-center gap-8 lg:gap-10">
           {navLinks.map((link) => (
             <li key={link.label}>
@@ -79,18 +81,14 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile: Hamburger only */}
+        {/* Mobile Hamburger — hidden on md+ */}
         <button
-          className="md:hidden flex-shrink-0"
+          className="flex md:hidden flex-col flex-shrink-0 items-center justify-center"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
           style={{
             width: "40px",
             height: "40px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             gap: "5px",
             background: "transparent",
             border: "none",
@@ -104,7 +102,7 @@ export default function Navbar() {
             height: "2px",
             background: "var(--text-primary)",
             borderRadius: "2px",
-            transition: "transform 0.3s ease, opacity 0.3s ease",
+            transition: "transform 0.3s ease",
             transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none",
           }} />
           <span style={{
@@ -113,7 +111,7 @@ export default function Navbar() {
             height: "2px",
             background: "var(--text-primary)",
             borderRadius: "2px",
-            transition: "transform 0.3s ease, opacity 0.3s ease",
+            transition: "opacity 0.3s ease",
             opacity: menuOpen ? 0 : 1,
           }} />
           <span style={{
@@ -122,23 +120,24 @@ export default function Navbar() {
             height: "2px",
             background: "var(--text-primary)",
             borderRadius: "2px",
-            transition: "transform 0.3s ease, opacity 0.3s ease",
+            transition: "transform 0.3s ease",
             transform: menuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none",
           }} />
         </button>
       </nav>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Dropdown Menu */}
       <div
-        className="md:hidden transition-all duration-300"
+        className="md:hidden"
         style={{
           maxHeight: menuOpen ? "400px" : "0",
           overflow: "hidden",
+          transition: "max-height 0.3s ease",
           background: "rgba(8, 10, 15, 0.98)",
           borderBottom: menuOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
         }}
       >
-        <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div style={{ padding: "24px 20px", display: "flex", flexDirection: "column", gap: "20px" }}>
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -156,7 +155,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <div style={{ paddingTop: "8px", borderTop: "1px solid var(--border)" }}>
+          <div style={{ paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
@@ -164,7 +163,6 @@ export default function Navbar() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: "8px",
                 background: "var(--yellow)",
                 color: "#080a0f",
                 fontWeight: 700,

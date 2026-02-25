@@ -766,6 +766,10 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -925,6 +929,9 @@ video {
 }
 .w-px {
   width: 1px;
+}
+.w-10 {
+  width: 2.5rem;
 }
 .max-w-5xl {
   max-width: 64rem;
@@ -1507,6 +1514,30 @@ body::before {
 textarea.input-field {
   resize: vertical;
   min-height: 120px;
+}
+
+/* ── Responsive helpers ── */
+.btn-primary, .btn-outline {
+  white-space: nowrap;
+}
+
+/* Make buttons full-width on mobile when stacked */
+@media (max-width: 639px) {
+  .btn-primary, .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Prevent horizontal scroll ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Every section clips its own overflow so blobs/absolute elements never cause scrollbars */
+section {
+  overflow: hidden;
 }
 .group:hover .group-hover\:-translate-y-1 {
   --tw-translate-y: -0.25rem;

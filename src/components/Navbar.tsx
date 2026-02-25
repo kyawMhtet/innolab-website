@@ -20,7 +20,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu on resize to desktop
   useEffect(() => {
     const onResize = () => { if (window.innerWidth >= 768) setMenuOpen(false); };
     window.addEventListener("resize", onResize);
@@ -33,19 +32,19 @@ export default function Navbar() {
       style={{
         background: scrolled || menuOpen ? "rgba(8, 10, 15, 0.96)" : "transparent",
         backdropFilter: scrolled || menuOpen ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none",
+        borderBottom: scrolled || menuOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
       }}
     >
       <nav className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
           <Image
             src="/logo.png"
             alt="Innolab Digital Solutions"
             width={36}
             height={36}
-            style={{ objectFit: "contain", width: "auto", height: "36px" }}
+            style={{ objectFit: "contain", width: "auto", height: "32px" }}
             priority
           />
           <span className="font-bold text-base sm:text-lg tracking-tight">
@@ -80,49 +79,105 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile: CTA + Hamburger */}
-        <div className="md:hidden flex items-center gap-3">
-          <a href="#contact" className="btn-primary text-xs py-2.5 px-4">
-            Let's Talk
-          </a>
-          <button
-            className="flex flex-col gap-1.5 p-1.5"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span className="block w-5 h-0.5 transition-all duration-300 origin-center"
-              style={{ background: "var(--text-primary)", transform: menuOpen ? "rotate(45deg) translate(3px, 4px)" : "" }} />
-            <span className="block w-5 h-0.5 transition-all duration-300"
-              style={{ background: "var(--text-primary)", opacity: menuOpen ? 0 : 1, transform: menuOpen ? "scaleX(0)" : "" }} />
-            <span className="block w-5 h-0.5 transition-all duration-300 origin-center"
-              style={{ background: "var(--text-primary)", transform: menuOpen ? "rotate(-45deg) translate(3px, -4px)" : "" }} />
-          </button>
-        </div>
+        {/* Mobile: Hamburger only */}
+        <button
+          className="md:hidden flex-shrink-0"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+          style={{
+            width: "40px",
+            height: "40px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "5px",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            padding: "0",
+          }}
+        >
+          <span style={{
+            display: "block",
+            width: "22px",
+            height: "2px",
+            background: "var(--text-primary)",
+            borderRadius: "2px",
+            transition: "transform 0.3s ease, opacity 0.3s ease",
+            transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none",
+          }} />
+          <span style={{
+            display: "block",
+            width: "22px",
+            height: "2px",
+            background: "var(--text-primary)",
+            borderRadius: "2px",
+            transition: "transform 0.3s ease, opacity 0.3s ease",
+            opacity: menuOpen ? 0 : 1,
+          }} />
+          <span style={{
+            display: "block",
+            width: "22px",
+            height: "2px",
+            background: "var(--text-primary)",
+            borderRadius: "2px",
+            transition: "transform 0.3s ease, opacity 0.3s ease",
+            transform: menuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none",
+          }} />
+        </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       <div
-        className="md:hidden overflow-hidden transition-all duration-300"
+        className="md:hidden transition-all duration-300"
         style={{
-          maxHeight: menuOpen ? "360px" : "0",
+          maxHeight: menuOpen ? "400px" : "0",
+          overflow: "hidden",
           background: "rgba(8, 10, 15, 0.98)",
           borderBottom: menuOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
         }}
       >
-        <div className="px-5 py-6 flex flex-col gap-5">
+        <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-sm font-bold tracking-widest uppercase"
-              style={{ color: "var(--text-secondary)" }}
+              style={{
+                fontSize: "0.85rem",
+                fontWeight: 700,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "var(--text-secondary)",
+                textDecoration: "none",
+              }}
             >
               {link.label}
             </a>
           ))}
-          <div className="pt-2" style={{ borderTop: "1px solid var(--border)" }}>
-            <a href="#contact" className="btn-primary text-xs w-full justify-center" onClick={() => setMenuOpen(false)}>
+          <div style={{ paddingTop: "8px", borderTop: "1px solid var(--border)" }}>
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                background: "var(--yellow)",
+                color: "#080a0f",
+                fontWeight: 700,
+                fontSize: "0.8rem",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+                padding: "13px 24px",
+                borderRadius: "999px",
+                textDecoration: "none",
+                width: "100%",
+                boxSizing: "border-box",
+              }}
+            >
               Start Dialogue →
             </a>
           </div>

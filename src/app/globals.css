@@ -247,3 +247,27 @@ textarea.input-field {
   resize: vertical;
   min-height: 120px;
 }
+
+/* ── Responsive helpers ── */
+.btn-primary, .btn-outline {
+  white-space: nowrap;
+}
+
+/* Make buttons full-width on mobile when stacked */
+@media (max-width: 639px) {
+  .btn-primary, .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Prevent horizontal scroll ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Every section clips its own overflow so blobs/absolute elements never cause scrollbars */
+section {
+  overflow: hidden;
+}

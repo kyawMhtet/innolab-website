@@ -49,7 +49,7 @@ export default function Hero() {
           <span style={{ fontStyle: "italic", color: "var(--yellow)", fontWeight: 400 }}>visions</span>{" "}
           into
           <br className="hidden sm:block" />
-          {" "}extraordinary digital
+          {" "}innovative digital
           <br className="hidden sm:block" />
           {" "}reality.
         </h1>

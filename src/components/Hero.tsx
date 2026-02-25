@@ -37,7 +37,7 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-5xl mx-auto text-center animate-stagger">
         {/* Badge */}
         <div className="flex justify-center mb-6 sm:mb-8">
-          <span className="badge">Available for projects · 2025</span>
+          <span className="badge">Available for projects · 2026</span>
         </div>
 
         {/* Headline */}

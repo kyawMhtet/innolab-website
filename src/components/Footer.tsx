@@ -47,7 +47,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-mono tracking-widest uppercase mb-4" style={{ color: "var(--text-secondary)" }}>Contact</h4>
             <ul className="space-y-3">
-              <li className="text-sm" style={{ color: "var(--text-secondary)" }}>hello@innolabdigital.com</li>
+              <li className="text-sm" style={{ color: "var(--text-secondary)" }}>contact@innolabdigitalsolutions.com</li>
               <li className="text-sm" style={{ color: "var(--text-secondary)" }}>WhatsApp: +1 234 567 8900</li>
               <li><a href="#contact" className="btn-primary text-xs mt-2 inline-flex">Start a Project →</a></li>
             </ul>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, DM_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeContext";
+import { LocaleProvider } from "@/components/LocaleContext";
 import "./globals.css";
 
 const syne = Syne({
@@ -17,18 +18,18 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: "Innolab Digital Solutions — Elevating Visions into Digital Reality",
-  description:
-    "A high-performance creative team for businesses seeking to dominate the digital landscape. Websites, apps, digital marketing & brand design.",
-  keywords: ["web design", "digital marketing", "app development", "brand design", "Innolab"],
+  description: "A high-performance creative team for businesses seeking to dominate the digital landscape.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${syne.variable} ${dmMono.variable}`}>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <LocaleProvider>
+            {children}
+          </LocaleProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

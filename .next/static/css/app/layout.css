@@ -732,8 +732,8 @@ video {
 .left-1\/2 {
   left: 50%;
 }
-.left-4 {
-  left: 1rem;
+.left-3 {
+  left: 0.75rem;
 }
 .left-6 {
   left: 1.5rem;
@@ -753,12 +753,6 @@ video {
 .top-1\/3 {
   top: 33.333333%;
 }
-.top-4 {
-  top: 1rem;
-}
-.left-3 {
-  left: 0.75rem;
-}
 .top-3 {
   top: 0.75rem;
 }
@@ -772,8 +766,14 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
+.mb-0\.5 {
+  margin-bottom: 0.125rem;
+}
 .mb-1 {
   margin-bottom: 0.25rem;
+}
+.mb-1\.5 {
+  margin-bottom: 0.375rem;
 }
 .mb-10 {
   margin-bottom: 2.5rem;
@@ -781,14 +781,8 @@ video {
 .mb-12 {
   margin-bottom: 3rem;
 }
-.mb-16 {
-  margin-bottom: 4rem;
-}
 .mb-2 {
   margin-bottom: 0.5rem;
-}
-.mb-20 {
-  margin-bottom: 5rem;
 }
 .mb-3 {
   margin-bottom: 0.75rem;
@@ -805,8 +799,8 @@ video {
 .mb-8 {
   margin-bottom: 2rem;
 }
-.ml-4 {
-  margin-left: 1rem;
+.ml-3 {
+  margin-left: 0.75rem;
 }
 .mt-0\.5 {
   margin-top: 0.125rem;
@@ -817,11 +811,8 @@ video {
 .mt-10 {
   margin-top: 2.5rem;
 }
-.mt-2 {
-  margin-top: 0.5rem;
-}
-.mt-24 {
-  margin-top: 6rem;
+.mt-14 {
+  margin-top: 3.5rem;
 }
 .mt-3 {
   margin-top: 0.75rem;
@@ -829,23 +820,11 @@ video {
 .mt-4 {
   margin-top: 1rem;
 }
-.mt-6 {
-  margin-top: 1.5rem;
-}
-.ml-3 {
-  margin-left: 0.75rem;
-}
 .mt-5 {
   margin-top: 1.25rem;
 }
-.mt-14 {
-  margin-top: 3.5rem;
-}
-.mb-0\.5 {
-  margin-bottom: 0.125rem;
-}
-.mb-1\.5 {
-  margin-bottom: 0.375rem;
+.mt-6 {
+  margin-top: 1.5rem;
 }
 .block {
   display: block;
@@ -886,17 +865,14 @@ video {
 .h-20 {
   height: 5rem;
 }
+.h-24 {
+  height: 6rem;
+}
 .h-32 {
   height: 8rem;
 }
-.h-48 {
-  height: 12rem;
-}
 .h-8 {
   height: 2rem;
-}
-.h-24 {
-  height: 6rem;
 }
 .h-9 {
   height: 2.25rem;
@@ -904,11 +880,11 @@ video {
 .min-h-screen {
   min-height: 100vh;
 }
+.w-10 {
+  width: 2.5rem;
+}
 .w-12 {
   width: 3rem;
-}
-.w-14 {
-  width: 3.5rem;
 }
 .w-16 {
   width: 4rem;
@@ -928,6 +904,9 @@ video {
 .w-8 {
   width: 2rem;
 }
+.w-9 {
+  width: 2.25rem;
+}
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -937,12 +916,6 @@ video {
 }
 .w-px {
   width: 1px;
-}
-.w-10 {
-  width: 2.5rem;
-}
-.w-9 {
-  width: 2.25rem;
 }
 .max-w-5xl {
   max-width: 64rem;
@@ -956,11 +929,11 @@ video {
 .max-w-lg {
   max-width: 32rem;
 }
-.max-w-xs {
-  max-width: 20rem;
-}
 .max-w-md {
   max-width: 28rem;
+}
+.max-w-xs {
+  max-width: 20rem;
 }
 .flex-shrink-0 {
   flex-shrink: 0;
@@ -1018,12 +991,6 @@ video {
 .gap-1\.5 {
   gap: 0.375rem;
 }
-.gap-10 {
-  gap: 2.5rem;
-}
-.gap-12 {
-  gap: 3rem;
-}
 .gap-2 {
   gap: 0.5rem;
 }
@@ -1045,10 +1012,10 @@ video {
 .gap-8 {
   gap: 2rem;
 }
-.space-y-12 > :not([hidden]) ~ :not([hidden]) {
+.space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
-  margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(3rem * var(--tw-space-y-reverse));
+  margin-top: calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.375rem * var(--tw-space-y-reverse));
 }
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1070,16 +1037,8 @@ video {
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
-.space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.375rem * var(--tw-space-y-reverse));
-}
 .overflow-hidden {
   overflow: hidden;
-}
-.whitespace-nowrap {
-  white-space: nowrap;
 }
 .break-all {
   word-break: break-all;
@@ -1102,8 +1061,8 @@ video {
 .border {
   border-width: 1px;
 }
-.p-12 {
-  padding: 3rem;
+.p-2\.5 {
+  padding: 0.625rem;
 }
 .p-3 {
   padding: 0.75rem;
@@ -1116,12 +1075,6 @@ video {
 }
 .p-6 {
   padding: 1.5rem;
-}
-.p-8 {
-  padding: 2rem;
-}
-.p-2\.5 {
-  padding: 0.625rem;
 }
 .p-7 {
   padding: 1.75rem;
@@ -1142,42 +1095,23 @@ video {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-.py-16 {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-.py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-.py-32 {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
 }
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
-.pt-5 {
-  padding-top: 1.25rem;
-}
-.pt-8 {
-  padding-top: 2rem;
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 .pt-1 {
   padding-top: 0.25rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
 }
 .pt-6 {
   padding-top: 1.5rem;
@@ -1201,10 +1135,6 @@ video {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 .text-base {
   font-size: 1rem;
@@ -1250,20 +1180,17 @@ video {
 .leading-relaxed {
   line-height: 1.625;
 }
-.leading-tight {
-  line-height: 1.25;
-}
 .leading-snug {
   line-height: 1.375;
+}
+.leading-tight {
+  line-height: 1.25;
 }
 .tracking-tight {
   letter-spacing: -0.025em;
 }
 .tracking-widest {
   letter-spacing: 0.1em;
-}
-.opacity-30 {
-  opacity: 0.3;
 }
 .opacity-25 {
   opacity: 0.25;
@@ -1289,11 +1216,6 @@ video {
 }
 .transition-opacity {
   transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-.transition-transform {
-  transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1589,22 +1511,8 @@ textarea.input-field { resize: vertical; min-height: 120px; }
   }
 }
 
-.group:hover .group-hover\:-translate-y-1 {
-  --tw-translate-y: -0.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:translate-x-1 {
-  --tw-translate-x: 0.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
-}
-
-.group:hover .group-hover\:opacity-60 {
-  opacity: 0.6;
 }
 
 .group:hover .group-hover\:opacity-50 {
@@ -1625,12 +1533,40 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     grid-column: span 2 / span 2;
   }
 
+  .sm\:mb-1 {
+    margin-bottom: 0.25rem;
+  }
+
   .sm\:mb-10 {
     margin-bottom: 2.5rem;
   }
 
+  .sm\:mb-12 {
+    margin-bottom: 3rem;
+  }
+
+  .sm\:mb-14 {
+    margin-bottom: 3.5rem;
+  }
+
   .sm\:mb-16 {
     margin-bottom: 4rem;
+  }
+
+  .sm\:mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .sm\:mb-3 {
+    margin-bottom: 0.75rem;
+  }
+
+  .sm\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .sm\:mb-5 {
+    margin-bottom: 1.25rem;
   }
 
   .sm\:mb-6 {
@@ -1645,26 +1581,6 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     margin-top: 3rem;
   }
 
-  .sm\:mt-8 {
-    margin-top: 2rem;
-  }
-
-  .sm\:mb-5 {
-    margin-bottom: 1.25rem;
-  }
-
-  .sm\:mt-6 {
-    margin-top: 1.5rem;
-  }
-
-  .sm\:mb-3 {
-    margin-bottom: 0.75rem;
-  }
-
-  .sm\:mb-4 {
-    margin-bottom: 1rem;
-  }
-
   .sm\:mt-20 {
     margin-top: 5rem;
   }
@@ -1673,40 +1589,24 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     margin-top: 1rem;
   }
 
-  .sm\:mb-1 {
-    margin-bottom: 0.25rem;
+  .sm\:mt-6 {
+    margin-top: 1.5rem;
   }
 
-  .sm\:mb-14 {
-    margin-bottom: 3.5rem;
-  }
-
-  .sm\:mb-2 {
-    margin-bottom: 0.5rem;
-  }
-
-  .sm\:mb-12 {
-    margin-bottom: 3rem;
+  .sm\:mt-8 {
+    margin-top: 2rem;
   }
 
   .sm\:block {
     display: block;
   }
 
-  .sm\:h-12 {
-    height: 3rem;
-  }
-
-  .sm\:h-20 {
-    height: 5rem;
-  }
-
-  .sm\:h-24 {
-    height: 6rem;
-  }
-
   .sm\:h-11 {
     height: 2.75rem;
+  }
+
+  .sm\:h-12 {
+    height: 3rem;
   }
 
   .sm\:h-14 {
@@ -1717,24 +1617,20 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     height: 4rem;
   }
 
+  .sm\:h-20 {
+    height: 5rem;
+  }
+
+  .sm\:h-24 {
+    height: 6rem;
+  }
+
   .sm\:h-32 {
     height: 8rem;
   }
 
   .sm\:h-44 {
     height: 11rem;
-  }
-
-  .sm\:w-24 {
-    width: 6rem;
-  }
-
-  .sm\:w-auto {
-    width: auto;
-  }
-
-  .sm\:w-20 {
-    width: 5rem;
   }
 
   .sm\:w-11 {
@@ -1753,6 +1649,18 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     width: 4rem;
   }
 
+  .sm\:w-20 {
+    width: 5rem;
+  }
+
+  .sm\:w-24 {
+    width: 6rem;
+  }
+
+  .sm\:w-auto {
+    width: auto;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1769,16 +1677,8 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     align-items: center;
   }
 
-  .sm\:gap-3 {
-    gap: 0.75rem;
-  }
-
-  .sm\:gap-4 {
-    gap: 1rem;
-  }
-
-  .sm\:gap-8 {
-    gap: 2rem;
+  .sm\:gap-10 {
+    gap: 2.5rem;
   }
 
   .sm\:gap-12 {
@@ -1789,12 +1689,20 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     gap: 0.5rem;
   }
 
+  .sm\:gap-3 {
+    gap: 0.75rem;
+  }
+
+  .sm\:gap-4 {
+    gap: 1rem;
+  }
+
   .sm\:gap-6 {
     gap: 1.5rem;
   }
 
-  .sm\:gap-10 {
-    gap: 2.5rem;
+  .sm\:gap-8 {
+    gap: 2rem;
   }
 
   .sm\:space-y-10 > :not([hidden]) ~ :not([hidden]) {
@@ -1809,39 +1717,24 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
   }
 
-  .sm\:p-4 {
-    padding: 1rem;
-  }
-
-  .sm\:p-8 {
-    padding: 2rem;
-  }
-
-  .sm\:p-7 {
-    padding: 1.75rem;
-  }
-
   .sm\:p-10 {
     padding: 2.5rem;
+  }
+
+  .sm\:p-4 {
+    padding: 1rem;
   }
 
   .sm\:p-6 {
     padding: 1.5rem;
   }
 
-  .sm\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  .sm\:p-7 {
+    padding: 1.75rem;
   }
 
-  .sm\:py-32 {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-
-  .sm\:py-14 {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
+  .sm\:p-8 {
+    padding: 2rem;
   }
 
   .sm\:px-3 {
@@ -1849,14 +1742,29 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     padding-right: 0.75rem;
   }
 
-  .sm\:py-28 {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+  .sm\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .sm\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .sm\:py-14 {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .sm\:py-28 {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .sm\:py-32 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 
   .sm\:pt-6 {
@@ -1874,6 +1782,11 @@ textarea.input-field { resize: vertical; min-height: 120px; }
   .sm\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .sm\:text-base {
@@ -1895,18 +1808,9 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
-
-  .sm\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
 }
 
 @media (min-width: 768px) {
-
-  .md\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
 
   .md\:flex {
     display: flex;
@@ -1914,26 +1818,6 @@ textarea.input-field { resize: vertical; min-height: 120px; }
 
   .md\:hidden {
     display: none;
-  }
-
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .md\:flex-row {
-    flex-direction: row;
-  }
-
-  .md\:items-end {
-    align-items: flex-end;
-  }
-
-  .md\:justify-between {
-    justify-content: space-between;
   }
 }
 
@@ -1951,12 +1835,12 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     grid-column: span 2 / span 2;
   }
 
-  .lg\:mb-20 {
-    margin-bottom: 5rem;
-  }
-
   .lg\:mb-16 {
     margin-bottom: 4rem;
+  }
+
+  .lg\:mb-20 {
+    margin-bottom: 5rem;
   }
 
   .lg\:block {
@@ -1979,10 +1863,6 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     flex-direction: row;
   }
 
-  .lg\:flex-row-reverse {
-    flex-direction: row-reverse;
-  }
-
   .lg\:items-end {
     align-items: flex-end;
   }
@@ -1995,12 +1875,12 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     gap: 2.5rem;
   }
 
-  .lg\:gap-8 {
-    gap: 2rem;
-  }
-
   .lg\:gap-16 {
     gap: 4rem;
+  }
+
+  .lg\:gap-8 {
+    gap: 2rem;
   }
 
   .lg\:space-y-12 > :not([hidden]) ~ :not([hidden]) {
@@ -2009,12 +1889,12 @@ textarea.input-field { resize: vertical; min-height: 120px; }
     margin-bottom: calc(3rem * var(--tw-space-y-reverse));
   }
 
-  .lg\:p-8 {
-    padding: 2rem;
-  }
-
   .lg\:p-12 {
     padding: 3rem;
+  }
+
+  .lg\:p-8 {
+    padding: 2rem;
   }
 
   .lg\:px-12 {
@@ -2025,16 +1905,6 @@ textarea.input-field { resize: vertical; min-height: 120px; }
   .lg\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
-  }
-
-  .lg\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  .lg\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
   }
 
   .lg\:text-2xl {
@@ -2055,6 +1925,16 @@ textarea.input-field { resize: vertical; min-height: 120px; }
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 

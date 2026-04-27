@@ -106,7 +106,7 @@ export default function Navbar() {
             <button
               onClick={() => setLangOpen(!langOpen)}
               className="theme-toggle"
-              style={{ width: "auto", borderRadius: "20px", padding: "0 12px", fontSize: "0.7rem", fontFamily: "var(--font-dm-mono)", fontWeight: 600, letterSpacing: "0.08em", gap: "4px" }}
+              style={{ width: "auto", borderRadius: "6px", padding: "0 12px", fontSize: "0.7rem", fontFamily: "var(--font-ibm-mono)", fontWeight: 600, letterSpacing: "0.08em", gap: "4px" }}
             >
               {localeLabels[locale]}
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
@@ -118,15 +118,15 @@ export default function Navbar() {
               <div style={{
                 position: "absolute", top: "calc(100% + 8px)", right: 0,
                 background: "var(--bg-card)", border: "1px solid var(--border)",
-                borderRadius: "12px", overflow: "hidden", minWidth: "90px",
+                borderRadius: "6px", overflow: "hidden", minWidth: "90px",
                 boxShadow: "0 8px 24px rgba(0,0,0,0.15)", zIndex: 100,
               }}>
                 {localeOptions.map((l) => (
                   <button key={l} onClick={() => { setLocale(l); setLangOpen(false); }}
                     style={{
                       display: "block", width: "100%", padding: "9px 14px", textAlign: "left",
-                      fontSize: "0.72rem", fontFamily: "var(--font-dm-mono)", fontWeight: 600,
-                      letterSpacing: "0.06em", background: locale === l ? "rgba(255,193,7,0.1)" : "transparent",
+                      fontSize: "0.72rem", fontFamily: "var(--font-ibm-mono)", fontWeight: 600,
+                      letterSpacing: "0.06em", background: locale === l ? "rgba(91,141,239,0.1)" : "transparent",
                       color: locale === l ? "var(--yellow)" : "var(--text-secondary)",
                       border: "none", cursor: "pointer", transition: "background 0.15s ease",
                     }}
@@ -157,10 +157,10 @@ export default function Navbar() {
           <div className="lang-dropdown" style={{ position: "relative" }}>
             <button onClick={() => setLangOpen(!langOpen)}
               style={{
-                height: "34px", padding: "0 10px", borderRadius: "20px",
+                height: "34px", padding: "0 10px", borderRadius: "6px",
                 border: "1px solid var(--border)", background: "var(--bg-card)",
                 color: "var(--text-primary)", fontSize: "0.65rem",
-                fontFamily: "var(--font-dm-mono)", fontWeight: 600,
+                fontFamily: "var(--font-ibm-mono)", fontWeight: 600,
                 letterSpacing: "0.08em", cursor: "pointer", display: "flex",
                 alignItems: "center", gap: "3px", flexShrink: 0,
               }}
@@ -175,15 +175,15 @@ export default function Navbar() {
               <div style={{
                 position: "absolute", top: "calc(100% + 8px)", right: 0,
                 background: "var(--bg-card)", border: "1px solid var(--border)",
-                borderRadius: "12px", overflow: "hidden", minWidth: "80px",
+                borderRadius: "6px", overflow: "hidden", minWidth: "80px",
                 boxShadow: "0 8px 24px rgba(0,0,0,0.15)", zIndex: 100,
               }}>
                 {localeOptions.map((l) => (
                   <button key={l} onClick={() => { setLocale(l); setLangOpen(false); }}
                     style={{
                       display: "block", width: "100%", padding: "9px 14px", textAlign: "left",
-                      fontSize: "0.7rem", fontFamily: "var(--font-dm-mono)", fontWeight: 600,
-                      background: locale === l ? "rgba(255,193,7,0.1)" : "transparent",
+                      fontSize: "0.7rem", fontFamily: "var(--font-ibm-mono)", fontWeight: 600,
+                      background: locale === l ? "rgba(91,141,239,0.1)" : "transparent",
                       color: locale === l ? "var(--yellow)" : "var(--text-secondary)",
                       border: "none", cursor: "pointer",
                     }}
@@ -221,7 +221,7 @@ export default function Navbar() {
           ))}
           <div style={{ paddingTop: "12px", borderTop: "1px solid var(--border)" }}>
             <a href="#contact" onClick={() => setMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", justifyContent: "center", background: "var(--yellow)", color: "#ffffff", fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em", textTransform: "uppercase", padding: "13px 24px", borderRadius: "999px", textDecoration: "none", width: "100%", boxSizing: "border-box" }}>
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", background: "var(--yellow)", color: "#ffffff", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.04em", textTransform: "uppercase", padding: "13px 24px", borderRadius: "6px", textDecoration: "none", width: "100%", boxSizing: "border-box" }}>
               {t.nav.cta} →
             </a>
           </div>

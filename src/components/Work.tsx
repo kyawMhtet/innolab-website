@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { useLocale } from "./LocaleContext";
 
 const tagColors = ["var(--yellow)", "#ff6b9d", "var(--blue)", "#818cf8"];
-const projectColors = ["#FFC107", "#ff6b9d", "#2563EB", "#818cf8"];
+const projectColors = ["#5b8def", "#ff6b9d", "#2563EB", "#818cf8"];
 
 export default function Work() {
   const ref = useRef<HTMLDivElement>(null);
@@ -34,14 +34,14 @@ export default function Work() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {t.work.projects.map((project, i) => (
-            <div key={i} className="reveal glow-card rounded-2xl overflow-hidden group cursor-pointer" style={{ animationDelay: `${i * 0.1}s` }}>
+            <div key={i} className="glow-card rounded-2xl overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay={i * 120}>
               <div className="h-32 sm:h-44 relative flex items-center justify-center"
                 style={{ background: `linear-gradient(135deg, ${projectColors[i]}12, ${projectColors[i]}04)` }}>
                 <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center text-2xl sm:text-3xl font-bold opacity-25 group-hover:opacity-50 transition-opacity duration-300"
                   style={{ background: projectColors[i], color: "#080a0f" }}>
                   {project.title[0]}
                 </div>
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs font-mono px-2 sm:px-3 py-1 rounded-full"
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs font-mono px-2 sm:px-3 py-1 rounded-sm"
                   style={{ background: `${projectColors[i]}25`, color: tagColors[i], border: `1px solid ${projectColors[i]}50` }}>
                   {project.tag}
                 </div>

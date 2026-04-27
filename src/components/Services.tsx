@@ -24,7 +24,6 @@ export default function Services() {
 
   return (
     <section id="services" className="py-20 sm:py-28 lg:py-32 relative px-5 sm:px-8 lg:px-12" ref={ref}>
-      <div className="blob" style={{ width: "40vw", height: "40vw", background: "var(--blue)", top: "50%", right: "-10vw", transform: "translateY(-50%)", opacity: 0.05 }} />
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="reveal mb-10 sm:mb-16 lg:mb-20">
           <span className="badge">{t.services.badge}</span>
@@ -39,14 +38,14 @@ export default function Services() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {t.services.items.map((service, i) => (
-            <div key={service.num} className="reveal glow-card rounded-2xl p-5 sm:p-7 lg:p-8 cursor-pointer" style={{ animationDelay: `${i * 0.1}s` }}>
+            <div key={service.num} className="glow-card rounded-2xl p-5 sm:p-7 lg:p-8 cursor-pointer" data-aos="fade-up" data-aos-delay={i * 100}>
               <div className="flex items-start justify-between mb-4 sm:mb-5">
                 <div>
                   <span className="font-mono text-xs mb-2 block" style={{ color: "var(--text-secondary)" }}>{service.num}</span>
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight">{service.title}</h3>
                 </div>
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 ml-3"
-                  style={{ background: "rgba(255,193,7,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,193,7,0.2)" }}>
+                  style={{ background: "rgba(91,141,239,0.1)", color: "var(--yellow)", border: "1px solid rgba(91,141,239,0.2)" }}>
                   {icons[i]}
                 </div>
               </div>
@@ -54,7 +53,7 @@ export default function Services() {
               <div className="flex flex-wrap items-end justify-between gap-3">
                 <div className="flex gap-1.5 sm:gap-2 flex-wrap">
                   {service.tags.map((tag) => (
-                    <span key={tag} className="text-xs font-mono px-2 sm:px-3 py-1 rounded-full"
+                    <span key={tag} className="text-xs font-mono px-2 sm:px-3 py-1 rounded-sm"
                       style={{ background: "rgba(255,255,255,0.05)", border: "1px solid var(--border)", color: "var(--text-secondary)" }}>{tag}</span>
                   ))}
                 </div>

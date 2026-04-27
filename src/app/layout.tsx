@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Syne, DM_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { LocaleProvider } from "@/components/LocaleContext";
 import "./globals.css";
 
-const syne = Syne({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-jakarta",
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const dmMono = DM_Mono({
+const ibmMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-dm-mono",
-  weight: ["300", "400", "500"],
+  variable: "--font-ibm-mono",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmMono.variable}`}>
+    <html lang="en" className={`${jakarta.variable} ${ibmMono.variable}`}>
       <body>
         <ThemeProvider>
           <LocaleProvider>

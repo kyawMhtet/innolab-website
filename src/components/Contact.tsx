@@ -29,7 +29,7 @@ export default function Contact() {
         <div className="text-center animate-stagger max-w-lg mx-auto">
           <div className="flex justify-center mb-8">
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center"
-              style={{ background: "rgba(255,193,7,0.15)", border: "2px solid var(--yellow)" }}>
+              style={{ background: "rgba(91,141,239,0.1)", border: "1px solid rgba(91,141,239,0.35)" }}>
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
           </div>
@@ -63,7 +63,6 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-20 sm:py-28 lg:py-32 relative px-5 sm:px-8 lg:px-12" ref={ref}>
-      <div className="blob" style={{ width: "50vw", height: "50vw", background: "var(--yellow)", top: "50%", left: "50%", transform: "translate(-50%,-50%)", opacity: 0.04 }} />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="reveal text-center mb-10 sm:mb-16">
           <span className="badge">{c.badge}</span>
@@ -87,7 +86,7 @@ export default function Contact() {
                 ].map((s) => (
                   <div key={s.num} className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5 transition-all duration-300"
-                      style={{ background: step > s.num ? "var(--yellow)" : step === s.num ? "rgba(255,193,7,0.2)" : "rgba(255,255,255,0.05)", color: step > s.num ? "#080a0f" : step === s.num ? "var(--yellow)" : "var(--text-secondary)", border: step === s.num ? "1px solid var(--yellow)" : "1px solid transparent" }}>
+                      style={{ background: step > s.num ? "var(--yellow)" : step === s.num ? "rgba(91,141,239,0.15)" : "rgba(255,255,255,0.05)", color: step > s.num ? "#ffffff" : step === s.num ? "var(--yellow)" : "var(--text-secondary)", border: step === s.num ? "1px solid var(--yellow)" : "1px solid transparent" }}>
                       {step > s.num ? "✓" : s.num}
                     </div>
                     <div>
@@ -100,7 +99,7 @@ export default function Contact() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl p-6" style={{ background: "rgba(255,193,7,0.05)", border: "1px solid rgba(255,193,7,0.15)" }}>
+            <div className="rounded-2xl p-6" style={{ background: "rgba(91,141,239,0.04)", border: "1px solid rgba(91,141,239,0.12)" }}>
               <div className="text-xs font-mono mb-2" style={{ color: "var(--yellow)" }}>{c.sidebar.note}</div>
               <p className="text-sm italic" style={{ color: "var(--text-secondary)" }}>{c.sidebar.noteText}</p>
             </div>
@@ -128,7 +127,7 @@ export default function Contact() {
                   {c.projectTypes.map((pt) => (
                     <button key={pt.label} onClick={() => setSelectedType(pt.label)}
                       className="rounded-xl p-3 sm:p-4 text-left transition-all duration-200 flex items-center gap-2 sm:gap-3"
-                      style={{ background: selectedType === pt.label ? "var(--yellow)" : "rgba(255,255,255,0.04)", color: selectedType === pt.label ? "#0d1117" : "var(--text-primary)", border: selectedType === pt.label ? "1px solid var(--yellow)" : "1px solid var(--border)" }}>
+                      style={{ background: selectedType === pt.label ? "var(--yellow)" : "rgba(255,255,255,0.04)", color: selectedType === pt.label ? "#ffffff" : "var(--text-primary)", border: selectedType === pt.label ? "1px solid var(--yellow)" : "1px solid var(--border)" }}>
                       <span className="text-xl sm:text-2xl">{pt.icon}</span>
                       <span className="text-xs sm:text-sm font-semibold">{pt.label}</span>
                     </button>
@@ -141,7 +140,7 @@ export default function Contact() {
                   {c.budgets.map((b) => (
                     <button key={b.tier} onClick={() => setSelectedBudget(b.range)}
                       className="w-full rounded-xl p-3 sm:p-4 text-left transition-all duration-200 flex items-center justify-between"
-                      style={{ background: selectedBudget === b.range ? "rgba(255,193,7,0.1)" : "rgba(255,255,255,0.03)", color: selectedBudget === b.range ? "var(--yellow)" : "var(--text-primary)", border: selectedBudget === b.range ? "1px solid var(--yellow)" : "1px solid var(--border)" }}>
+                      style={{ background: selectedBudget === b.range ? "rgba(91,141,239,0.1)" : "rgba(255,255,255,0.03)", color: selectedBudget === b.range ? "var(--yellow)" : "var(--text-primary)", border: selectedBudget === b.range ? "1px solid var(--yellow)" : "1px solid var(--border)" }}>
                       <span className="text-xs font-mono" style={{ color: "var(--text-secondary)" }}>{b.tier}</span>
                       <span className="font-bold text-sm sm:text-base">{b.range}</span>
                     </button>

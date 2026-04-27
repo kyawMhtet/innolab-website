@@ -17,7 +17,6 @@ export default function About() {
 
   return (
     <section id="about" className="py-20 sm:py-28 lg:py-32 relative px-5 sm:px-8 lg:px-12" ref={ref}>
-      <div className="blob" style={{ width: "40vw", height: "40vw", background: "var(--yellow)", bottom: "0", right: "-10vw", opacity: 0.04 }} />
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="reveal mb-12 sm:mb-16 lg:mb-20">
           <span className="badge">{t.about.badge}</span>
@@ -48,7 +47,7 @@ export default function About() {
             {t.about.team.map((member, i) => (
               <div key={i} className="glow-card rounded-2xl p-4 sm:p-6">
                 <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center font-bold text-sm sm:text-lg mb-3 sm:mb-4"
-                  style={{ background: "rgba(255,193,7,0.12)", color: "var(--yellow)", border: "1px solid rgba(255,193,7,0.2)" }}>
+                  style={{ background: "rgba(91,141,239,0.1)", color: "var(--yellow)", border: "1px solid rgba(91,141,239,0.2)" }}>
                   {member.initial}
                 </div>
                 <div className="font-bold text-xs sm:text-sm lg:text-base mb-1">{member.name}</div>

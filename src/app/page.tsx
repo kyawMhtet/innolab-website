@@ -7,10 +7,12 @@ import Work from "@/components/Work";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AosInit from "@/components/AosInit";
 
 export default function Home() {
   return (
     <>
+      <AosInit />
       <Navbar />
       <main>
         <Hero />

@@ -12,9 +12,9 @@ export default function Footer() {
       <style>{`
         .footer-link { color: var(--text-secondary); transition: color 0.2s ease; text-decoration: none; font-size: 0.875rem; }
         .footer-link:hover { color: var(--text-primary); }
-        .footer-social { font-size: 0.7rem; font-family: var(--font-dm-mono), monospace; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text-secondary); transition: border-color 0.2s ease, color 0.2s ease; text-decoration: none; display: inline-block; }
-        .footer-social:hover { border-color: rgba(255,193,7,0.4); color: var(--yellow); }
-        .footer-legal { font-size: 0.7rem; font-family: var(--font-dm-mono), monospace; color: var(--text-secondary); transition: color 0.2s ease; text-decoration: none; }
+        .footer-social { font-size: 0.7rem; font-family: var(--font-ibm-mono), monospace; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text-secondary); transition: border-color 0.2s ease, color 0.2s ease; text-decoration: none; display: inline-block; }
+        .footer-social:hover { border-color: rgba(91,141,239,0.4); color: var(--yellow); }
+        .footer-legal { font-size: 0.7rem; font-family: var(--font-ibm-mono), monospace; color: var(--text-secondary); transition: color 0.2s ease; text-decoration: none; }
         .footer-legal:hover { color: var(--yellow); }
       `}</style>
 

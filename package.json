@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/aos": "^3.0.7",
+    "aos": "^2.3.4",
     "next": "15.2.6",
+    "ogl": "^1.0.11",
     "react": "^18",
     "react-dom": "^18"
   },

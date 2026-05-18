@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { useLocale } from "./LocaleContext";
 import Image from "next/image";
 
@@ -6,6 +7,8 @@ export default function Footer() {
   const year = new Date().getFullYear();
   const { t } = useLocale();
   const f = t.footer;
+  const pathname = usePathname();
+  const hp = (anchor: string) => pathname === "/" ? anchor : `/${anchor}`;
 
   return (
     <footer className="py-10 sm:py-12 relative" style={{ borderTop: "1px solid var(--border)" }}>
@@ -48,7 +51,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {f.services.map((s) => (
-                <li key={s}><a href="#services" className="footer-link">{s}</a></li>
+                <li key={s}><a href={hp("#services")} className="footer-link">{s}</a></li>
               ))}
             </ul>
           </div>
@@ -62,7 +65,7 @@ export default function Footer() {
               <li className="text-sm break-all" style={{ color: "var(--text-secondary)" }}>{f.email}</li>
               <li className="text-sm" style={{ color: "var(--text-secondary)" }}>{f.whatsapp}</li>
               <li className="pt-1">
-                <a href="#contact" className="btn-primary text-xs inline-flex">{f.startProject}</a>
+                <a href={hp("#contact")} className="btn-primary text-xs inline-flex">{f.startProject}</a>
               </li>
             </ul>
           </div>

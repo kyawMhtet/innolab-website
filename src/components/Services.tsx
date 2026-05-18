@@ -1,12 +1,27 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { useLocale } from "./LocaleContext";
 
 const icons = [
+  // Business Website — monitor
   <svg key="1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>,
-  <svg key="2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg>,
-  <svg key="3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>,
-  <svg key="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>,
+  // E-commerce — shopping bag
+  <svg key="2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 01-8 0" /></svg>,
+  // Booking — calendar
+  <svg key="3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>,
+  // Marketplace — store
+  <svg key="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" /></svg>,
+  // Mobile App — smartphone
+  <svg key="5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg>,
+];
+
+const slugs = [
+  "business-website",
+  "ecommerce",
+  "booking-system",
+  "marketplace",
+  "mobile-app",
 ];
 
 export default function Services() {
@@ -38,7 +53,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {t.services.items.map((service, i) => (
-            <div key={service.num} className="glow-card rounded-2xl p-5 sm:p-7 lg:p-8 cursor-pointer" data-aos="fade-up" data-aos-delay={i * 100}>
+            <div key={service.num} className="glow-card rounded-2xl p-5 sm:p-7 lg:p-8 flex flex-col" data-aos="fade-up" data-aos-delay={i * 100}>
               <div className="flex items-start justify-between mb-4 sm:mb-5">
                 <div>
                   <span className="font-mono text-xs mb-2 block" style={{ color: "var(--text-secondary)" }}>{service.num}</span>
@@ -61,6 +76,15 @@ export default function Services() {
                   <div className="text-base sm:text-lg font-bold" style={{ color: "var(--yellow)" }}>{service.stat}</div>
                   <div className="text-xs font-mono" style={{ color: "var(--text-secondary)" }}>{service.statLabel}</div>
                 </div>
+              </div>
+              <div className="mt-4 pt-4 flex-1 flex items-end" style={{ borderTop: "1px solid var(--border)" }}>
+                <Link
+                  href={`/services/${slugs[i]}`}
+                  className="text-xs font-mono transition-opacity hover:opacity-100"
+                  style={{ color: "var(--yellow)", opacity: 0.75 }}
+                >
+                  View Details →
+                </Link>
               </div>
             </div>
           ))}

@@ -67,7 +67,7 @@ export default function Contact() {
         <div className="reveal text-center mb-10 sm:mb-16">
           <span className="badge">{c.badge}</span>
           <h2 className="font-extrabold mt-6" style={{ fontSize: "clamp(1.8rem, 5vw, 4rem)" }}>
-            {c.heading1}{" "}<span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 400 }}>{c.headingItalic}</span>
+            {c.heading1}{" "}<span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 800 }}>{c.headingItalic}</span>
           </h2>
           <p className="mt-3 text-sm" style={{ color: "var(--text-secondary)" }}>{c.sub}</p>
         </div>

@@ -45,7 +45,7 @@ export default function Services() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mt-5 sm:mt-6">
             <h2 className="font-extrabold leading-none" style={{ fontSize: "clamp(2rem, 7vw, 5rem)" }}>
               {t.services.heading1}{" "}
-              <span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 400 }}>{t.services.headingItalic}</span>
+              <span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 800 }}>{t.services.headingItalic}</span>
             </h2>
             <p style={{ color: "var(--text-secondary)", maxWidth: "340px" }} className="text-sm leading-relaxed">{t.services.sub}</p>
           </div>

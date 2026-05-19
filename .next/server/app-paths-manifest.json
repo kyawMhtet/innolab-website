@@ -1,5 +1,9 @@
 {
   "/icon.svg/route": "app/icon.svg/route.js",
+  "/page": "app/page.js",
+  "/work/[slug]/page": "app/work/[slug]/page.js",
+  "/services/mobile-app/page": "app/services/mobile-app/page.js",
+  "/services/booking-system/page": "app/services/booking-system/page.js",
   "/services/business-website/page": "app/services/business-website/page.js",
-  "/page": "app/page.js"
+  "/services/ecommerce/page": "app/services/ecommerce/page.js"
 }

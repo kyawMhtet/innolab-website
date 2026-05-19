@@ -44,7 +44,7 @@ export default function Hero() {
           style={{ fontSize: "clamp(2.4rem, 8vw, 7rem)", lineHeight: 1.05 }}
         >
           {t.hero.headline1}{" "}
-          <span style={{ fontStyle: "italic", color: "var(--yellow)", fontWeight: 400 }}>
+          <span style={{ fontStyle: "italic", color: "var(--yellow)", fontWeight: 800 }}>
             {t.hero.headlineItalic}
           </span>{" "}
           {t.hero.headline2}

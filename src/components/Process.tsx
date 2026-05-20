@@ -16,15 +16,27 @@ export default function Process() {
   }, []);
 
   const visuals = [
+    /* 01 Discovery */
     <div key="1" className="flex items-center justify-center h-24 sm:h-32">
       <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-xl sm:text-3xl font-bold"
         style={{ background: "rgba(91,141,239,0.1)", color: "var(--yellow)", border: "1px solid rgba(91,141,239,0.25)" }}>98%</div>
     </div>,
+    /* 02 Planning */
     <div key="2" className="flex items-center gap-3 h-24 sm:h-32 justify-center">
       <div className="space-y-2">{[70,50,85,40].map((w,i)=><div key={i} className="h-2 rounded-full" style={{width:`${w}px`,background:i===0?"var(--yellow)":"rgba(255,255,255,0.1)"}}/>)}</div>
       <div className="w-10 h-14 sm:w-12 sm:h-16 rounded-lg" style={{background:"rgba(91,141,239,0.1)",border:"1px solid rgba(91,141,239,0.2)"}}/>
     </div>,
-    <div key="3" className="h-24 sm:h-32 flex items-center justify-center overflow-hidden">
+    /* 03 UI Design */
+    <div key="3" className="h-24 sm:h-32 flex items-center justify-center gap-2">
+      <div className="flex flex-col gap-1.5">
+        {["#5B8DEF","#FFD600","rgba(255,255,255,0.15)"].map((c,i)=>(
+          <div key={i} className="rounded" style={{width:`${[48,32,56][i]}px`,height:"8px",background:c}}/>
+        ))}
+      </div>
+      <div className="w-14 h-20 rounded-xl" style={{background:"rgba(91,141,239,0.08)",border:"1px solid rgba(91,141,239,0.2)"}}/>
+    </div>,
+    /* 04 Development */
+    <div key="4" className="h-24 sm:h-32 flex items-center justify-center overflow-hidden">
       <div className="rounded-lg p-2.5 font-mono text-xs leading-relaxed" style={{background:"rgba(91,141,239,0.05)",border:"1px solid rgba(91,141,239,0.15)",color:"var(--yellow)"}}>
         <div style={{color:"rgba(255,255,255,0.35)"}}>{"// component.tsx"}</div>
         <div><span style={{color:"#ff79c6"}}>export const</span>{" Engine = () => {"}</div>
@@ -34,11 +46,28 @@ export default function Process() {
         <div>{"}"}</div>
       </div>
     </div>,
-    <div key="4" className="h-24 sm:h-32 flex flex-col items-center justify-center gap-2 sm:gap-3">
+    /* 05 Testing */
+    <div key="5" className="h-24 sm:h-32 flex flex-col items-center justify-center gap-2">
+      {[["UI Tests","✓"],["API Tests","✓"],["E2E Tests","✓"]].map(([label,icon])=>(
+        <div key={label} className="flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-sm"
+          style={{background:"rgba(91,141,239,0.07)",border:"1px solid rgba(91,141,239,0.18)",color:"var(--text-secondary)"}}>
+          <span style={{color:"var(--yellow)"}}>{icon}</span>{label}
+        </div>
+      ))}
+    </div>,
+    /* 06 Deployment */
+    <div key="6" className="h-24 sm:h-32 flex flex-col items-center justify-center gap-2 sm:gap-3">
       <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center" style={{background:"rgba(91,141,239,0.1)",border:"1px solid rgba(91,141,239,0.3)"}}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" strokeWidth="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
       </div>
       <span className="text-xs font-mono" style={{color:"var(--yellow)"}}>Live · Active</span>
+    </div>,
+    /* 07 Handover */
+    <div key="7" className="h-24 sm:h-32 flex flex-col items-center justify-center gap-2 sm:gap-3">
+      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center" style={{background:"rgba(91,141,239,0.1)",border:"1px solid rgba(91,141,239,0.3)"}}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" strokeWidth="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.21.45 4.55 1.22"/><path d="M21 3v4h-4"/></svg>
+      </div>
+      <span className="text-xs font-mono" style={{color:"var(--yellow)"}}>Docs · Training</span>
     </div>,
   ];
 

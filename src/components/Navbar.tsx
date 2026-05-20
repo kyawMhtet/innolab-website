@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "./ThemeContext";
@@ -35,6 +36,8 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const { locale, setLocale, t } = useLocale();
   const isDark = theme === "dark";
+  const pathname = usePathname();
+  const hp = (anchor: string) => pathname === "/" ? anchor : `/${anchor}`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -59,10 +62,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: t.nav.services, href: "#services" },
-    { label: t.nav.process, href: "#process" },
-    { label: t.nav.work, href: "#work" },
-    { label: t.nav.about, href: "#about" },
+    { label: t.nav.services, href: hp("#services") },
+    { label: t.nav.process, href: hp("#process") },
+    { label: t.nav.work, href: hp("#work") },
+    { label: t.nav.about, href: hp("#about") },
   ];
 
   return (
@@ -143,7 +146,7 @@ export default function Navbar() {
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
             {isDark ? <SunIcon /> : <MoonIcon />}
           </button>
-          <a href="#contact" className="btn-primary text-xs">
+          <a href={hp("#contact")} className="btn-primary text-xs">
             {t.nav.cta}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -220,7 +223,7 @@ export default function Navbar() {
             </a>
           ))}
           <div style={{ paddingTop: "12px", borderTop: "1px solid var(--border)" }}>
-            <a href="#contact" onClick={() => setMenuOpen(false)}
+            <a href={hp("#contact")} onClick={() => setMenuOpen(false)}
               style={{ display: "flex", alignItems: "center", justifyContent: "center", background: "var(--yellow)", color: "#ffffff", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.04em", textTransform: "uppercase", padding: "13px 24px", borderRadius: "6px", textDecoration: "none", width: "100%", boxSizing: "border-box" }}>
               {t.nav.cta} →
             </a>

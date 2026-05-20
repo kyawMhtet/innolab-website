@@ -106,7 +106,7 @@ section { overflow: hidden; }
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
   font-family: var(--font-ibm-mono), monospace;
   font-size: 0.6rem;
   letter-spacing: 0.15em;
@@ -118,11 +118,14 @@ section { overflow: hidden; }
   background: transparent;
 }
 .badge::before {
-  content: '';
-  width: 20px;
-  height: 1px;
-  background: var(--yellow);
+  content: '//';
+  color: var(--yellow);
+  font-family: var(--font-ibm-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: -0.12em;
   flex-shrink: 0;
+  line-height: 1;
+  padding-right: 2px;
 }
 
 .animate-stagger > * {

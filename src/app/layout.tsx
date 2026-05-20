@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { LocaleProvider } from "@/components/LocaleContext";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -17,7 +18,7 @@ const ibmMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Innolab Digital Solutions — Elevating Visions into Digital Reality",
+  title: "Innolab Digital Solutions - Elevating Visions into Digital Reality",
   description: "A high-performance creative team for businesses seeking to dominate the digital landscape.",
 };
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ThemeProvider>
           <LocaleProvider>
             {children}
+            <ScrollToTop />
           </LocaleProvider>
         </ThemeProvider>
       </body>

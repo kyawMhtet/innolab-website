@@ -17,7 +17,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-5 sm:px-8"
       style={{ paddingTop: "80px" }}
     >
-      {/* Particles background — key forces remount on theme change so WebGL buffers reinitialize */}
+      {/* Particles background - key forces remount on theme change so WebGL buffers reinitialize */}
       <div key={theme} style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
         <Particles
           particleCount={400}
@@ -44,7 +44,7 @@ export default function Hero() {
           style={{ fontSize: "clamp(2.4rem, 8vw, 7rem)", lineHeight: 1.05 }}
         >
           {t.hero.headline1}{" "}
-          <span style={{ fontStyle: "italic", color: "var(--yellow)", fontWeight: 400 }}>
+          <span style={{ fontStyle: "italic", color: "var(--yellow)", fontWeight: 800 }}>
             {t.hero.headlineItalic}
           </span>{" "}
           {t.hero.headline2}

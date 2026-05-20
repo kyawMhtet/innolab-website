@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailLayout, { type ServiceData } from "@/components/ServiceDetailLayout";
 
 export const metadata: Metadata = {
-  title: "E-commerce Platform Development — InnoLab Digital Solutions",
+  title: "E-commerce Platform Development - InnoLab Digital Solutions",
   description: "Online stores with product catalog, cart, checkout, and payment integration. Built to manage orders, inventory, and customers at scale.",
 };
 
@@ -12,10 +12,10 @@ const data: ServiceData = {
   titleLine1: "E-commerce",
   titleLine2: "Platform",
   description:
-    "Online stores built to sell — complete with product management, cart, secure checkout, and payment integration. Add inventory, loyalty, and multi-currency as your business scales.",
+    "Online stores built to sell - complete with product management, cart, secure checkout, and payment integration. Add inventory, loyalty, and multi-currency as your business scales.",
   color: "#ff6b9d",
   stats: [
-    { val: "4–10 wks", label: "Build timeline" },
+    { val: "4-10 wks", label: "Build timeline" },
     { val: "From $800", label: "Starting price" },
     { val: "2", label: "Service tiers" },
     { val: "Laravel API", label: "Backend" },
@@ -40,14 +40,14 @@ const data: ServiceData = {
     {
       num: "01",
       name: "Starter Store",
-      timeline: "4–6 weeks",
+      timeline: "4-6 weeks",
       desc: "Product catalog, cart, checkout, basic payment gateway.",
       price: "From $800",
     },
     {
       num: "02",
       name: "Business Store",
-      timeline: "6–10 weeks",
+      timeline: "6-10 weeks",
       desc: "Full platform + inventory, customer accounts, advanced management & analytics.",
       price: "From $1,000",
       highlight: true,

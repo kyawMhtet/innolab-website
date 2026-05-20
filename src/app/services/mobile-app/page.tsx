@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ServiceDetailLayout, { type ServiceData } from "@/components/ServiceDetailLayout";
 
 export const metadata: Metadata = {
-  title: "Mobile Application Development — InnoLab Digital Solutions",
-  description: "iOS & Android apps built with React Native. Consumer apps, platform companions, and internal business tools — each scoped to your product vision.",
+  title: "Mobile Application Development - InnoLab Digital Solutions",
+  description: "iOS & Android apps built with React Native. Consumer apps, platform companions, and internal business tools - each scoped to your product vision.",
 };
 
 const data: ServiceData = {
@@ -12,10 +12,10 @@ const data: ServiceData = {
   titleLine1: "Mobile",
   titleLine2: "Application",
   description:
-    "iOS & Android apps built with React Native — a single codebase delivering a native experience on both platforms. Consumer apps, platform companions, and internal business tools, each scoped individually.",
+    "iOS & Android apps built with React Native - a single codebase delivering a native experience on both platforms. Consumer apps, platform companions, and internal business tools, each scoped individually.",
   color: "#2563EB",
   stats: [
-    { val: "8–16 wks", label: "Build timeline" },
+    { val: "8-16 wks", label: "Build timeline" },
     { val: "From $2,500", label: "Starting price" },
     { val: "iOS & Android", label: "Platforms" },
     { val: "React Native", label: "Framework" },
@@ -40,14 +40,14 @@ const data: ServiceData = {
     {
       num: "01",
       name: "Simple App",
-      timeline: "8–10 weeks",
+      timeline: "8-10 weeks",
       desc: "Core screens, authentication, basic API integration, App Store submission.",
       price: "Custom",
     },
     {
       num: "02",
       name: "Medium Complexity",
-      timeline: "10–16 weeks",
+      timeline: "10-16 weeks",
       desc: "Multiple user roles, complex flows, payments, real-time features.",
       price: "Custom",
       highlight: true,
@@ -56,7 +56,7 @@ const data: ServiceData = {
       num: "03",
       name: "Advanced App",
       timeline: "16+ weeks",
-      desc: "Full product ecosystem — complex business logic, deep integrations, scalable architecture.",
+      desc: "Full product ecosystem - complex business logic, deep integrations, scalable architecture.",
       price: "From $2,500",
     },
   ],

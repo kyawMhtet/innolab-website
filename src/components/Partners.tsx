@@ -48,7 +48,7 @@ export default function Partners() {
           WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}>
           <div className="p-marquee-inner" ref={innerRef}>
-            {/* first set — measured */}
+            {/* first set - measured */}
             <div ref={firstSetRef} style={{ display: "flex", alignItems: "center" }}>
               {PARTNERS.map((p, i) => (
                 <span key={i} className="text-xs sm:text-sm font-bold tracking-widest uppercase flex-shrink-0"
@@ -57,7 +57,7 @@ export default function Partners() {
                 </span>
               ))}
             </div>
-            {/* duplicate — seamless loop */}
+            {/* duplicate - seamless loop */}
             <div aria-hidden="true" style={{ display: "flex", alignItems: "center" }}>
               {PARTNERS.map((p, i) => (
                 <span key={i} className="text-xs sm:text-sm font-bold tracking-widest uppercase flex-shrink-0"

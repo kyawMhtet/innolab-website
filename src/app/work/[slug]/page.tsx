@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getWork(slug);
   if (!project) return {};
   return {
-    title: `${project.title} — InnoLab Digital Solutions`,
+    title: `${project.title} - InnoLab Digital Solutions`,
     description: project.overview.slice(0, 160),
   };
 }
@@ -170,7 +170,7 @@ export default async function WorkDetailPage({ params }: Props) {
         {/* ── HERO IMAGE ── */}
         <section className="px-5 sm:px-8 lg:px-12" style={{ paddingBottom: "clamp(60px, 8vw, 100px)" }}>
           <div className="max-w-7xl mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="80">
-            <WorkImage src={project.images.hero} alt={`${project.title} — hero`} aspectRatio="16/9" />
+            <WorkImage src={project.images.hero} alt={`${project.title} - hero`} aspectRatio="16/9" />
           </div>
         </section>
 
@@ -319,14 +319,14 @@ export default async function WorkDetailPage({ params }: Props) {
           >
             <div className="max-w-7xl mx-auto" style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               <div data-aos="fade-up" data-aos-duration="1000" data-aos-offset="60">
-                <WorkImage src={project.images.full1} alt={`${project.title} — screen 1`} aspectRatio="16/9" />
+                <WorkImage src={project.images.full1} alt={`${project.title} - screen 1`} aspectRatio="16/9" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="100" data-aos-offset="60">
-                  <WorkImage src={project.images.half1} alt={`${project.title} — screen 2`} aspectRatio="4/3" objectFit="contain" />
+                  <WorkImage src={project.images.half1} alt={`${project.title} - screen 2`} aspectRatio="4/3" objectFit="contain" />
                 </div>
                 <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="200" data-aos-offset="60">
-                  <WorkImage src={project.images.half2} alt={`${project.title} — screen 3`} aspectRatio="4/3" objectFit="contain" />
+                  <WorkImage src={project.images.half2} alt={`${project.title} - screen 3`} aspectRatio="4/3" objectFit="contain" />
                 </div>
               </div>
             </div>

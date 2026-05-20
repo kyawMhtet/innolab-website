@@ -43,7 +43,7 @@ export const works: WorkProject[] = [
     overview:
       "A comprehensive corporate web presence for a Bangkok-based construction group, integrating a custom admin dashboard for internal project tracking, client reporting, and team coordination. The platform bridges the gap between the company's public identity and its operational workflows.",
     challenge:
-      "Huan Tai needed a digital presence that matched their scale and reputation in the construction sector — but also required a private-facing operational system for managing project pipelines, client documents, and multi-team coordination across active sites.",
+      "Huan Tai needed a digital presence that matched their scale and reputation in the construction sector - but also required a private-facing operational system for managing project pipelines, client documents, and multi-team coordination across active sites.",
     solution:
       "We architected a decoupled system: a polished Next.js marketing site for public-facing brand presence, paired with a full Laravel-backed admin dashboard for internal operations. Role-based access, document management, and real-time project status tracking were built to match the company's operational workflows.",
     metrics: [
@@ -76,11 +76,11 @@ export const works: WorkProject[] = [
     stack: ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
     color: "#ff6b9d",
     overview:
-      "A high-impact commercial website crafted to capture and communicate the distinctive personality of the SoulSmith brand. The project prioritised visual identity, storytelling, and lead conversion — delivered in a rapid 3-week sprint engagement.",
+      "A high-impact commercial website crafted to capture and communicate the distinctive personality of the SoulSmith brand. The project prioritised visual identity, storytelling, and lead conversion - delivered in a rapid 3-week sprint engagement.",
     challenge:
-      "SoulSmith needed to rapidly establish a credible, distinctive online presence that communicated their brand personality and drove meaningful business engagement — without the typical timelines of a full creative agency process.",
+      "SoulSmith needed to rapidly establish a credible, distinctive online presence that communicated their brand personality and drove meaningful business engagement - without the typical timelines of a full creative agency process.",
     solution:
-      "We compressed discovery and design into a single-phase sprint — beginning with brand alignment sessions before moving directly into high-fidelity design and production build. The result is a cinematic, scroll-driven website that blends brand storytelling with conversion-focused structure.",
+      "We compressed discovery and design into a single-phase sprint - beginning with brand alignment sessions before moving directly into high-fidelity design and production build. The result is a cinematic, scroll-driven website that blends brand storytelling with conversion-focused structure.",
     metrics: [
       { val: "3 wks", label: "Brief to live" },
       { val: "100%", label: "Custom design" },
@@ -113,7 +113,7 @@ export const works: WorkProject[] = [
     overview:
       "A full-stack health and wellness platform serving both web and mobile audiences. The system encompasses a dynamic programme management interface, a content-rich blog CMS, member dashboards, and a cross-platform React Native application for iOS and Android.",
     challenge:
-      "Sa Kyi required a unified digital ecosystem — not a patchwork of tools. Members needed to access wellness programmes, track progress, and consume content whether on web or mobile, while administrators needed a powerful backend to manage dynamic content and member data at scale.",
+      "Sa Kyi required a unified digital ecosystem - not a patchwork of tools. Members needed to access wellness programmes, track progress, and consume content whether on web or mobile, while administrators needed a powerful backend to manage dynamic content and member data at scale.",
     solution:
       "We designed and developed a tightly integrated platform: a Laravel API core serving both the Next.js web dashboard and the React Native mobile app. Shared authentication, content, and programme data ensured members received a seamless experience across every touchpoint.",
     metrics: [
@@ -146,7 +146,7 @@ export const works: WorkProject[] = [
     stack: ["System Analysis", "UX Audit", "Architecture Review", "Documentation"],
     color: "#818cf8",
     overview:
-      "A comprehensive technical and UX evaluation of UNESCO's ClassMap application — a digital education tool used across multiple countries. The engagement produced a structured audit report covering architecture integrity, user experience patterns, accessibility, and feature completeness with prioritised recommendations.",
+      "A comprehensive technical and UX evaluation of UNESCO's ClassMap application - a digital education tool used across multiple countries. The engagement produced a structured audit report covering architecture integrity, user experience patterns, accessibility, and feature completeness with prioritised recommendations.",
     challenge:
       "UNESCO required an independent, expert evaluation of ClassMap's current state before committing to a major development phase. Internal teams lacked the external perspective needed to surface systemic issues and prioritise improvements objectively.",
     solution:

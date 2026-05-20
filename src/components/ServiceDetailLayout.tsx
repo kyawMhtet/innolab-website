@@ -185,7 +185,7 @@ export default function ServiceDetailLayout({ data }: { data: ServiceData }) {
           <div className="max-w-7xl mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="80">
             <WorkImage
               src={data.images.hero}
-              alt={`${data.titleLine1} ${data.titleLine2} — preview`}
+              alt={`${data.titleLine1} ${data.titleLine2} - preview`}
               aspectRatio="16/9"
             />
           </div>

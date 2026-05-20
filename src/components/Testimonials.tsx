@@ -89,7 +89,7 @@ export default function Testimonials() {
           WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}>
           <div className="t-marquee-inner" ref={innerRef}>
-            {/* first set — measured */}
+            {/* first set - measured */}
             <div ref={firstSetRef} style={{ display: "flex" }}>
               {items.map((item, i) => (
                 <div key={i} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
@@ -97,7 +97,7 @@ export default function Testimonials() {
                 </div>
               ))}
             </div>
-            {/* duplicate — seamless loop */}
+            {/* duplicate - seamless loop */}
             <div aria-hidden="true" style={{ display: "flex" }}>
               {items.map((item, i) => (
                 <div key={i} style={{ paddingLeft: "10px", paddingRight: "10px" }}>

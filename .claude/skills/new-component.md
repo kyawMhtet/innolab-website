@@ -1,44 +1,25 @@
-# Skill: Create a New Component
+# New Component Guidelines
 
-## Overview
-Use this skill when asked to create a new UI component for the Next.js application.
+When creating a new component for the Innolab Website, adhere to the following rules:
 
-## Execution Steps
+1. **Location & Structure**: 
+   - Place reusable components in `src/components/`.
+   - Use PascalCase for the file name (e.g., `HeroSection.tsx`).
 
-1. **Determine the Scope**: 
-   - Is it a Server Component or Client Component? Default to Server Component unless state (`useState`) or lifecycle methods (`useEffect`) are needed.
-   - What props will it receive?
+2. **TypeScript & React**:
+   - Always use the `.tsx` extension.
+   - Use functional components.
+   - Define and export an interface for component props (if any).
 
-2. **Create the File**:
-   - Path: `src/components/[ComponentName].tsx`
-   - Use PascalCase for the filename and component name.
+3. **Styling**:
+   - Use TailwindCSS for all styling.
+   - Avoid inline styles.
+   - Utilize existing design tokens (colors, fonts) if defined in the Tailwind config.
 
-3. **Template**:
-   Use the following template for scaffolding. Replace placeholders as needed.
+4. **Client vs Server Components (Next.js App Router)**:
+   - Components are Server Components by default.
+   - If the component requires interactivity, state, or browser APIs (like `useState`, `useEffect`, `window`, or AOS animations), include the `"use client";` directive at the top of the file.
 
-   ```tsx
-   import React from 'react';
-
-   // If client-side interactivity is needed, add "use client"; at the absolute top of this file.
-
-   export interface {ComponentName}Props {
-     // Define props here
-     className?: string;
-   }
-
-   export default function {ComponentName}({ className = '' }: {ComponentName}Props) {
-     return (
-       <div className={`relative ${className}`}>
-         {/* Implementation goes here */}
-       </div>
-     );
-   }
-   ```
-
-4. **Styling Rules**:
-   - Use Tailwind CSS classes for styling.
-   - For responsive design, use Tailwind prefixes (`md:`, `lg:`).
-   - Ensure you utilize standard text colors and backgrounds based on the project's premium aesthetic requirements (defined in `.cursorrules`).
-
-5. **Integration**:
-   - After creating the file, automatically determine where it should be imported or ask the user if they'd like you to insert it into a specific page.
+5. **Icons & Animations**:
+   - Use `react-icons` for any iconography.
+   - For scroll animations, utilize `aos` (Animate On Scroll) and ensure attributes like `data-aos` are properly configured.

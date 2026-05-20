@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceDetailLayout, { type ServiceData } from "@/components/ServiceDetailLayout";
 
 export const metadata: Metadata = {
-  title: "Booking & Reservation System — InnoLab Digital Solutions",
+  title: "Booking & Reservation System - InnoLab Digital Solutions",
   description: "Appointment and scheduling platforms for clinics, salons, hotels, and event organizers. Availability calendar, booking forms, and automated notifications.",
 };
 
@@ -12,10 +12,10 @@ const data: ServiceData = {
   titleLine1: "Booking &",
   titleLine2: "Reservation System",
   description:
-    "Appointment and scheduling platforms for service businesses. Real-time availability, automated confirmations, and admin dashboards — purpose-built for your booking workflow.",
+    "Appointment and scheduling platforms for service businesses. Real-time availability, automated confirmations, and admin dashboards - purpose-built for your booking workflow.",
   color: "#5b8def",
   stats: [
-    { val: "4–10 wks", label: "Build timeline" },
+    { val: "4-10 wks", label: "Build timeline" },
     { val: "From $1,200", label: "Starting price" },
     { val: "2", label: "Service tiers" },
     { val: "Laravel", label: "Core backend" },
@@ -40,14 +40,14 @@ const data: ServiceData = {
     {
       num: "01",
       name: "Simple Booking",
-      timeline: "4–6 weeks",
+      timeline: "4-6 weeks",
       desc: "Single service type, calendar view, booking form, email notifications.",
       price: "From $1,200",
     },
     {
       num: "02",
       name: "Advanced Platform",
-      timeline: "6–10 weeks",
+      timeline: "6-10 weeks",
       desc: "Multiple service types, staff management, payment integration, full admin dashboard.",
       price: "From $1,500",
       highlight: true,

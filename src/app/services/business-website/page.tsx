@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ServiceDetailLayout, { type ServiceData } from "@/components/ServiceDetailLayout";
 
 export const metadata: Metadata = {
-  title: "Business Website Development — InnoLab Digital Solutions",
-  description: "Professional websites for companies, startups, and brands. Responsive design, SEO, CMS, and lead capture — delivered in weeks.",
+  title: "Business Website Development - InnoLab Digital Solutions",
+  description: "Professional websites for companies, startups, and brands. Responsive design, SEO, CMS, and lead capture - delivered in weeks.",
 };
 
 const data: ServiceData = {
@@ -12,16 +12,16 @@ const data: ServiceData = {
   titleLine1: "Business Website",
   titleLine2: "Development",
   description:
-    "Professional websites for companies, startups, and brands. Responsive design, SEO-friendly structure, CMS integration, and lead capture forms — delivered in weeks, not months.",
+    "Professional websites for companies, startups, and brands. Responsive design, SEO-friendly structure, CMS integration, and lead capture forms - delivered in weeks, not months.",
   color: "#FFBA00",
   stats: [
-    { val: "2–8 wks", label: "Delivery timeline" },
+    { val: "2-8 wks", label: "Delivery timeline" },
     { val: "From $300", label: "Starting price" },
     { val: "3", label: "Packages" },
     { val: "Next.js", label: "Core stack" },
   ],
   features: [
-    "Responsive design — mobile, tablet & desktop",
+    "Responsive design - mobile, tablet & desktop",
     "SEO-friendly structure & metadata",
     "CMS for easy content updates",
     "Contact & lead capture forms",
@@ -40,14 +40,14 @@ const data: ServiceData = {
     {
       num: "01",
       name: "Starter",
-      timeline: "2–3 weeks",
+      timeline: "2-3 weeks",
       desc: "Up to 5 pages, contact form, basic SEO setup, mobile-responsive.",
       price: "From $300",
     },
     {
       num: "02",
       name: "Business",
-      timeline: "3–5 weeks",
+      timeline: "3-5 weeks",
       desc: "Up to 10 pages, CMS integration, lead capture forms, analytics.",
       price: "From $700",
       highlight: true,
@@ -55,7 +55,7 @@ const data: ServiceData = {
     {
       num: "03",
       name: "Professional",
-      timeline: "6–8 weeks",
+      timeline: "6-8 weeks",
       desc: "Full site, blog system, advanced SEO, third-party integrations.",
       price: "From $1,000",
     },

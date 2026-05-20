@@ -17,7 +17,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-5 sm:px-8"
       style={{ paddingTop: "80px" }}
     >
-      {/* Particles background — key forces remount on theme change so WebGL buffers reinitialize */}
+      {/* Particles background - key forces remount on theme change so WebGL buffers reinitialize */}
       <div key={theme} style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
         <Particles
           particleCount={400}

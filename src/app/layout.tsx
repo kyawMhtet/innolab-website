@@ -17,7 +17,7 @@ const ibmMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Innolab Digital Solutions — Elevating Visions into Digital Reality",
+  title: "Innolab Digital Solutions - Elevating Visions into Digital Reality",
   description: "A high-performance creative team for businesses seeking to dominate the digital landscape.",
 };
 

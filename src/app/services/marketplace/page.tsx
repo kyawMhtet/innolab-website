@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ServiceDetailLayout, { type ServiceData } from "@/components/ServiceDetailLayout";
 
 export const metadata: Metadata = {
-  title: "Marketplace Platform Development — InnoLab Digital Solutions",
-  description: "Multi-vendor platforms connecting buyers and sellers. Vendor onboarding, transaction flows, commission management, and reviews — custom scoped.",
+  title: "Marketplace Platform Development - InnoLab Digital Solutions",
+  description: "Multi-vendor platforms connecting buyers and sellers. Vendor onboarding, transaction flows, commission management, and reviews - custom scoped.",
 };
 
 const data: ServiceData = {
@@ -12,7 +12,7 @@ const data: ServiceData = {
   titleLine1: "Marketplace",
   titleLine2: "Platform",
   description:
-    "Multi-vendor platforms connecting buyers and sellers. Custom-scoped with vendor onboarding, transaction flows, commission management, and reviews — built to grow.",
+    "Multi-vendor platforms connecting buyers and sellers. Custom-scoped with vendor onboarding, transaction flows, commission management, and reviews - built to grow.",
   color: "#818cf8",
   stats: [
     { val: "12+ wks", label: "Build timeline" },
@@ -23,7 +23,7 @@ const data: ServiceData = {
   features: [
     "Multi-vendor storefront & onboarding flow",
     "Product listing, search & filtering",
-    "Secure buyer–seller transaction layer",
+    "Secure buyer-seller transaction layer",
     "Commission management & payout system",
     "Reviews, ratings & trust system",
     "Admin oversight & moderation dashboard",
@@ -40,7 +40,7 @@ const data: ServiceData = {
     {
       num: "01",
       name: "Core Marketplace",
-      timeline: "12–16 weeks",
+      timeline: "12-16 weeks",
       desc: "Vendor onboarding, product listings, transactions, commission engine, basic admin.",
       price: "Custom scope",
     },

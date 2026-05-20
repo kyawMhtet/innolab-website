@@ -10,6 +10,7 @@ export default function Contact() {
   const [selectedType, setSelectedType] = useState("");
   const [selectedBudget, setSelectedBudget] = useState("");
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+  const [errors, setErrors] = useState<{name?: 'reqName'; email?: 'reqEmail' | 'invEmail'; message?: 'reqMessage'}>({});
   const ref = useRef<HTMLDivElement>(null);
   const { t } = useLocale();
   const c = t.contact;
@@ -153,11 +154,23 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs font-mono mb-2 block" style={{ color: "var(--text-secondary)" }}>{c.fields.name}</label>
-                      <input className="input-field" placeholder={c.fields.namePH} value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} />
+                      <input className={`input-field ${errors.name ? 'border-red-500/50 focus:border-red-500 bg-red-500/5' : ''}`} placeholder={c.fields.namePH} value={form.name} onChange={(e) => { setForm({...form, name: e.target.value}); if (errors.name) setErrors({...errors, name: undefined}); }} />
+                      {errors.name && (
+                        <div className="mt-1.5 flex items-center gap-1.5 text-red-400 text-xs font-medium animate-fadeIn">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                          {c.errors[errors.name]}
+                        </div>
+                      )}
                     </div>
                     <div>
                       <label className="text-xs font-mono mb-2 block" style={{ color: "var(--text-secondary)" }}>{c.fields.email}</label>
-                      <input className="input-field" placeholder={c.fields.emailPH} value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} />
+                      <input className={`input-field ${errors.email ? 'border-red-500/50 focus:border-red-500 bg-red-500/5' : ''}`} placeholder={c.fields.emailPH} value={form.email} onChange={(e) => { setForm({...form, email: e.target.value}); if (errors.email) setErrors({...errors, email: undefined}); }} />
+                      {errors.email && (
+                        <div className="mt-1.5 flex items-center gap-1.5 text-red-400 text-xs font-medium animate-fadeIn">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                          {c.errors[errors.email]}
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div>
@@ -175,7 +188,13 @@ export default function Contact() {
                 <div className="space-y-4">
                   <div>
                     <label className="text-xs font-mono mb-2 block" style={{ color: "var(--text-secondary)" }}>{c.fields.message}</label>
-                    <textarea className="input-field" placeholder={c.fields.messagePH} value={form.message} onChange={(e) => setForm({...form, message: e.target.value})} />
+                    <textarea className={`input-field ${errors.message ? 'border-red-500/50 focus:border-red-500 bg-red-500/5' : ''}`} placeholder={c.fields.messagePH} value={form.message} onChange={(e) => { setForm({...form, message: e.target.value}); if (errors.message) setErrors({...errors, message: undefined}); }} />
+                    {errors.message && (
+                      <div className="mt-1.5 flex items-center gap-1.5 text-red-400 text-xs font-medium animate-fadeIn">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        {c.errors[errors.message]}
+                      </div>
+                    )}
                   </div>
                   <div>
                     <label className="text-xs font-mono mb-2 block" style={{ color: "var(--text-secondary)" }}>{c.fields.startDate}</label>
@@ -190,13 +209,32 @@ export default function Contact() {
                   {c.nav.back}
                 </button>
                 {step < 4 ? (
-                  <button className="btn-primary text-sm" onClick={() => { if (step===1&&!selectedType) return; if (step===2&&!selectedBudget) return; setStep((step+1) as Step); }}>
+                  <button className="btn-primary text-sm" onClick={() => {
+                    if (step === 1 && !selectedType) return;
+                    if (step === 2 && !selectedBudget) return;
+                    if (step === 3) {
+                      const newErrors: any = {};
+                      if (!form.name.trim()) newErrors.name = 'reqName';
+                      if (!form.email.trim()) newErrors.email = 'reqEmail';
+                      else if (!/^\S+@\S+\.\S+$/.test(form.email)) newErrors.email = 'invEmail';
+                      
+                      if (Object.keys(newErrors).length > 0) {
+                        setErrors(newErrors);
+                        return;
+                      }
+                    }
+                    setStep((step+1) as Step);
+                  }}>
                     {step === 1 ? c.nav.continue : step === 2 ? c.nav.nextContact : c.nav.nextDetails}
                   </button>
                 ) : (
-                  <button className="btn-primary text-sm" onClick={() => setSubmitted(true)}
-                    disabled={!form.name || !form.email || !form.message}
-                    style={{ opacity: !form.name || !form.email || !form.message ? 0.5 : 1 }}>
+                  <button className="btn-primary text-sm" onClick={() => {
+                    if (!form.message.trim()) {
+                      setErrors({ message: 'reqMessage' });
+                      return;
+                    }
+                    setSubmitted(true);
+                  }}>
                     {c.nav.submit}
                   </button>
                 )}

@@ -113,6 +113,12 @@ export interface Translations {
       startDate: string;
       startDatePH: string;
     };
+    errors: {
+      reqName: string;
+      reqEmail: string;
+      invEmail: string;
+      reqMessage: string;
+    };
     nav: { back: string; continue: string; nextContact: string; nextDetails: string; submit: string };
     sidebar: { title: string; awaiting: string; inProgress: string; finalStep: string; note: string; noteText: string };
     success: {
@@ -144,7 +150,7 @@ export interface Translations {
 const en: Translations = {
   nav: { services: "Services", process: "Process", work: "Work", about: "About", cta: "Start Dialogue" },
   hero: {
-    badge: "Available for projects · 2025",
+    badge: "Available for projects · 2026",
     headline1: "Elevating",
     headlineItalic: "visions",
     headline2: "into",
@@ -226,10 +232,11 @@ const en: Translations = {
     budgets: [{ tier: "Tier 1", range: "$500 – $2K" }, { tier: "Tier 2", range: "$2K – $5K" }, { tier: "Tier 3", range: "$5K – $15K" }, { tier: "Tier 4", range: "$15K+" }],
     stepTitles: { 1: "What are we building?", 2: "What is your budget?", 3: "Tell us about you.", 4: "Final details." },
     stepDesc: { 1: "Select the primary category.", 2: "Define the investment level.", 3: "Help us get to know you.", 4: "Anything else we should know?" },
-    fields: { name: "Your Name *", namePH: "John Smith", email: "Email Address *", emailPH: "john@company.com", company: "Company / Business Name", companyPH: "Acme Corp", phone: "Phone / WhatsApp (optional)", phonePH: "+1 234 567 8900", message: "Describe Your Project *", messagePH: "Tell us about your business, what you're looking to build, your goals...", startDate: "Preferred Start Date (optional)", startDatePH: "ASAP / Next Month / Q2 2025" },
+    fields: { name: "Your Name *", namePH: "John Smith", email: "Email Address *", emailPH: "john@company.com", company: "Company / Business Name", companyPH: "Acme Corp", phone: "Phone / WhatsApp (optional)", phonePH: "+1 234 567 8900", message: "Describe Your Project *", messagePH: "Tell us about your business, what you're looking to build, your goals...", startDate: "Preferred Start Date (optional)", startDatePH: "ASAP / Next Month / Q2 2026" },
     nav: { back: "← Back", continue: "Continue →", nextContact: "Next: Contact →", nextDetails: "Next: Details →", submit: "Submit Inquiry →" },
     sidebar: { title: "PROJECT INQUIRY", awaiting: "Awaiting selection", inProgress: "In progress", finalStep: "Final step", note: "AGENCY NOTE", noteText: "\"We typically respond to new project inquiries within 24 business hours. Let's build something remarkable.\"" },
     success: { badge: "Inquiry Received", heading1: "YOUR JOURNEY", heading2: "STARTS NOW", sub: "Thank you for reaching out. Our team is already reviewing your details.", strong: "personal response", ctaPrimary: "Explore Our Work →", ctaSecondary: "Back to Home", labels: ["Secure Intake", "Quick Response", "Elite Quality"] },
+    errors: { reqName: "Name is required", reqEmail: "Email is required", invEmail: "Please enter a valid email", reqMessage: "Please describe your project" },
   },
   footer: {
     tagline: "A high-performance creative team for businesses seeking to dominate the digital landscape.",
@@ -243,7 +250,7 @@ const en: Translations = {
 const th: Translations = {
   nav: { services: "บริการ", process: "กระบวนการ", work: "ผลงาน", about: "เกี่ยวกับ", cta: "เริ่มพูดคุย" },
   hero: {
-    badge: "รับงานโปรเจกต์ · 2025",
+    badge: "รับงานโปรเจกต์ · 2026",
     headline1: "ยกระดับ",
     headlineItalic: "วิสัยทัศน์",
     headline2: "สู่",
@@ -329,6 +336,7 @@ const th: Translations = {
     nav: { back: "← ย้อนกลับ", continue: "ดำเนินการต่อ →", nextContact: "ต่อไป: ข้อมูลติดต่อ →", nextDetails: "ต่อไป: รายละเอียด →", submit: "ส่งคำขอ →" },
     sidebar: { title: "คำขอโปรเจกต์", awaiting: "รอการเลือก", inProgress: "กำลังดำเนินการ", finalStep: "ขั้นตอนสุดท้าย", note: "หมายเหตุจากเอเจนซี่", noteText: "\"เราตอบกลับคำขอโปรเจกต์ใหม่ภายใน 24 ชั่วโมงทำการ มาสร้างสิ่งที่น่าทึ่งด้วยกัน\"" },
     success: { badge: "ได้รับคำขอแล้ว", heading1: "การเดินทางของคุณ", heading2: "เริ่มต้นแล้ว", sub: "ขอบคุณที่ติดต่อเรา ทีมของเรากำลังตรวจสอบรายละเอียดของคุณอยู่", strong: "การตอบกลับส่วนตัว", ctaPrimary: "ดูผลงานของเรา →", ctaSecondary: "กลับหน้าแรก", labels: ["ปลอดภัย", "ตอบกลับเร็ว", "คุณภาพสูง"] },
+    errors: { reqName: "กรุณาระบุชื่อ", reqEmail: "กรุณาระบุอีเมล", invEmail: "อีเมลไม่ถูกต้อง", reqMessage: "กรุณาอธิบายโปรเจกต์ของคุณ" },
   },
   footer: {
     tagline: "ทีมครีเอทีฟประสิทธิภาพสูงสำหรับธุรกิจที่ต้องการครองตลาดดิจิทัล",
@@ -342,7 +350,7 @@ const th: Translations = {
 const zh: Translations = {
   nav: { services: "服务", process: "流程", work: "案例", about: "关于", cta: "开始对话" },
   hero: {
-    badge: "接受项目合作 · 2025",
+    badge: "接受项目合作 · 2026",
     headline1: "将",
     headlineItalic: "愿景",
     headline2: "转化为",
@@ -424,10 +432,11 @@ const zh: Translations = {
     budgets: [{ tier: "层级 1", range: "$500 – $2K" }, { tier: "层级 2", range: "$2K – $5K" }, { tier: "层级 3", range: "$5K – $15K" }, { tier: "层级 4", range: "$15K+" }],
     stepTitles: { 1: "我们要构建什么？", 2: "您的预算是多少？", 3: "告诉我们关于您的信息", 4: "最终细节" },
     stepDesc: { 1: "选择主要类别", 2: "确定投资级别", 3: "帮助我们了解您", 4: "还有什么我们需要知道的？" },
-    fields: { name: "您的姓名 *", namePH: "张伟", email: "电子邮件 *", emailPH: "zhang@company.com", company: "公司 / 业务名称", companyPH: "某某有限公司", phone: "电话 / WhatsApp（可选）", phonePH: "+86 138 0000 0000", message: "描述您的项目 *", messagePH: "告诉我们关于您的业务、您想要构建的内容、您的目标...", startDate: "预期开始日期（可选）", startDatePH: "尽快 / 下个月 / 2025年第二季度" },
+    fields: { name: "您的姓名 *", namePH: "张伟", email: "电子邮件 *", emailPH: "zhang@company.com", company: "公司 / 业务名称", companyPH: "某某有限公司", phone: "电话 / WhatsApp（可选）", phonePH: "+86 138 0000 0000", message: "描述您的项目 *", messagePH: "告诉我们关于您的业务、您想要构建的内容、您的目标...", startDate: "预期开始日期（可选）", startDatePH: "尽快 / 下个月 / 2026年第二季度" },
     nav: { back: "← 返回", continue: "继续 →", nextContact: "下一步：联系方式 →", nextDetails: "下一步：详细信息 →", submit: "提交询价 →" },
     sidebar: { title: "项目询价", awaiting: "等待选择", inProgress: "进行中", finalStep: "最后步骤", note: "机构备注", noteText: "\"我们通常在24个工作小时内回复新项目询价，让我们一起构建非凡的东西\"" },
     success: { badge: "已收到询价", heading1: "您的旅程", heading2: "现在开始", sub: "感谢您的联系，我们的团队已经在审查您的详情", strong: "个人回复", ctaPrimary: "探索我们的案例 →", ctaSecondary: "返回首页", labels: ["安全接收", "快速响应", "卓越品质"] },
+    errors: { reqName: "姓名必填", reqEmail: "邮箱必填", invEmail: "请输入有效的邮箱地址", reqMessage: "请描述您的项目" },
   },
   footer: {
     tagline: "为寻求主导数字领域的企业提供高性能创意团队",

@@ -36,11 +36,33 @@ export interface Translations {
     items: {
       num: string;
       title: string;
+      benefit: string;
       desc: string;
       tags: string[];
       stat: string;
       statLabel: string;
     }[];
+  };
+  whyUs: {
+    badge: string;
+    heading1: string;
+    headingItalic: string;
+    sub: string;
+    items: { title: string; desc: string }[];
+  };
+  industries: {
+    badge: string;
+    heading1: string;
+    headingItalic: string;
+    sub: string;
+    items: { name: string; desc: string }[];
+  };
+  faq: {
+    badge: string;
+    heading1: string;
+    headingItalic: string;
+    sub: string;
+    items: { q: string; a: string }[];
   };
   process: {
     badge: string;
@@ -163,18 +185,58 @@ const en: Translations = {
     activeProject: "Active Project",
     avgGrowth: "Avg Client Growth",
   },
-  partners: { title: "Technologies & Platforms We Master" },
+  partners: { title: "Tools We Build With" },
   services: {
     badge: "What We Build",
     heading1: "SERVICES &",
     headingItalic: "Products.",
     sub: "From professional business websites to complex platform ecosystems - we build digital products that drive growth.",
     items: [
-      { num: "01", title: "Business Website Development", desc: "Professional websites for companies, startups, and brands. Responsive design, SEO-friendly structure, CMS integration, and lead capture - delivered in weeks.", tags: ["Next.js", "Tailwind CSS", "Headless CMS"], stat: "2-8 wks", statLabel: "Delivery timeline" },
-      { num: "02", title: "E-commerce Platform", desc: "Online stores with product catalog, shopping cart, secure checkout, and payment gateway integration. Built to manage orders, inventory, and customers at scale.", tags: ["Next.js", "Laravel API", "Payment Gateway"], stat: "$800+", statLabel: "Starting investment" },
-      { num: "03", title: "Booking & Reservation System", desc: "Appointment and scheduling platforms for clinics, salons, hotels, and event organizers. Availability calendar, booking forms, and automated notifications.", tags: ["Laravel", "Calendar API", "SMS/Email"], stat: "4-10 wks", statLabel: "Build timeline" },
-      { num: "04", title: "Marketplace Platform", desc: "Multi-vendor platforms connecting buyers and sellers. Custom-scoped with vendor onboarding, transaction flows, commission management, and reviews.", tags: ["Next.js", "Laravel", "Custom"], stat: "12+ wks", statLabel: "Custom delivery" },
-      { num: "05", title: "Mobile Application", desc: "iOS & Android apps built with React Native. Consumer apps, platform companion apps, and internal business tools - each scoped to your product vision.", tags: ["React Native", "Expo", "iOS & Android"], stat: "8-16+ wks", statLabel: "Development timeline" },
+      { num: "01", title: "Business Website Development", benefit: "Win trust and capture leads 24/7", desc: "Professional websites for companies, startups, and brands. Responsive design, SEO-friendly structure, CMS integration, and lead capture - delivered in weeks.", tags: ["Next.js", "Tailwind CSS", "Headless CMS"], stat: "2-8 wks", statLabel: "Delivery timeline" },
+      { num: "02", title: "E-commerce Platform", benefit: "Sell online, around the clock", desc: "Online stores with product catalog, shopping cart, secure checkout, and payment gateway integration. Built to manage orders, inventory, and customers at scale.", tags: ["Next.js", "Laravel API", "Payment Gateway"], stat: "$800+", statLabel: "Starting investment" },
+      { num: "03", title: "Booking & Reservation System", benefit: "Fill your calendar automatically", desc: "Appointment and scheduling platforms for clinics, salons, hotels, and event organizers. Availability calendar, booking forms, and automated notifications.", tags: ["Laravel", "Calendar API", "SMS/Email"], stat: "4-10 wks", statLabel: "Build timeline" },
+      { num: "04", title: "Marketplace Platform", benefit: "Connect buyers and sellers at scale", desc: "Multi-vendor platforms connecting buyers and sellers. Custom-scoped with vendor onboarding, transaction flows, commission management, and reviews.", tags: ["Next.js", "Laravel", "Custom"], stat: "12+ wks", statLabel: "Custom delivery" },
+      { num: "05", title: "Mobile Application", benefit: "Put your brand in every pocket", desc: "iOS & Android apps built with React Native. Consumer apps, platform companion apps, and internal business tools - each scoped to your product vision.", tags: ["React Native", "Expo", "iOS & Android"], stat: "8-16+ wks", statLabel: "Development timeline" },
+    ],
+  },
+  whyUs: {
+    badge: "Why InnoLab",
+    heading1: "More than code -",
+    headingItalic: "real business results.",
+    sub: "We're not just builders. We're a growth partner that turns your digital presence into measurable business outcomes.",
+    items: [
+      { title: "Built to grow revenue", desc: "Every design and feature decision ties back to your bottom line - more leads, more sales, more customers. Not just something that looks good." },
+      { title: "Clear, fixed pricing", desc: "You get a transparent quote before we start. No hourly surprises, no hidden fees - just predictable cost and a firm timeline." },
+      { title: "You own everything", desc: "Your website, code, content, and accounts are 100% yours. No lock-in, no being held hostage by your agency." },
+      { title: "One team, end to end", desc: "Design, development, marketing, and brand all under one roof - no agencies pointing fingers at each other when something breaks." },
+    ],
+  },
+  industries: {
+    badge: "Who We Work With",
+    heading1: "Built for your",
+    headingItalic: "industry.",
+    sub: "We've delivered for clients across sectors - and we speak the language of your business.",
+    items: [
+      { name: "Retail & E-commerce", desc: "Online stores, product catalogs, and checkout that converts." },
+      { name: "Health & Wellness", desc: "Clinics, salons, and studios with online booking built in." },
+      { name: "Hospitality & Travel", desc: "Hotels, restaurants, and tour operators with reservation systems." },
+      { name: "Construction & Real Estate", desc: "Corporate sites and dashboards for project and client management." },
+      { name: "Education & Non-profit", desc: "Platforms, learning tools, and system reviews - including UNESCO." },
+      { name: "Startups & Brands", desc: "Launch-ready websites and apps that make a strong first impression." },
+    ],
+  },
+  faq: {
+    badge: "FAQ",
+    heading1: "Questions,",
+    headingItalic: "answered.",
+    sub: "Everything you need to know before starting a project with us.",
+    items: [
+      { q: "How much does a project cost?", a: "Projects start from around $500 for a simple website and scale with complexity. After a short discovery call, we give you a clear, fixed quote - no hidden fees." },
+      { q: "How long will it take?", a: "Most websites launch in 2-8 weeks. Larger platforms and mobile apps take longer; either way, you get a firm timeline before any work begins." },
+      { q: "Do I own the website and code?", a: "Yes, 100%. Everything we build is yours - the code, design, content, and all accounts. There's no lock-in." },
+      { q: "I'm not technical. Is that a problem?", a: "Not at all. We handle the technical side and explain everything in plain language, so you can focus on running your business." },
+      { q: "Do you provide support after launch?", a: "Yes. We train your team, hand over documentation, and offer ongoing support plans so you're never left stranded." },
+      { q: "Can you help with marketing too?", a: "Absolutely. Beyond building, we run Meta & Google Ads, SEO, and brand design to actually bring customers to your door." },
     ],
   },
   process: {
@@ -263,18 +325,58 @@ const th: Translations = {
     activeProject: "โปรเจกต์ที่ดำเนินอยู่",
     avgGrowth: "การเติบโตเฉลี่ยของลูกค้า",
   },
-  partners: { title: "เทคโนโลยีและแพลตฟอร์มที่เราเชี่ยวชาญ" },
+  partners: { title: "เครื่องมือที่เราใช้สร้างผลงาน" },
   services: {
     badge: "สิ่งที่เราสร้าง",
     heading1: "บริการ &",
     headingItalic: "ผลิตภัณฑ์",
     sub: "ตั้งแต่เว็บไซต์ธุรกิจมืออาชีพจนถึงแพลตฟอร์มดิจิทัลที่ซับซ้อน เราสร้างผลิตภัณฑ์ดิจิทัลที่ขับเคลื่อนการเติบโต",
     items: [
-      { num: "01", title: "พัฒนาเว็บไซต์ธุรกิจ", desc: "เว็บไซต์มืออาชีพสำหรับบริษัท สตาร์ทอัพ และแบรนด์ต่างๆ รองรับทุกหน้าจอ โครงสร้าง SEO ครบถ้วน พร้อม CMS และฟอร์มรับลูกค้า", tags: ["Next.js", "Tailwind CSS", "Headless CMS"], stat: "2-8 สัปดาห์", statLabel: "กรอบเวลาส่งมอบ" },
-      { num: "02", title: "แพลตฟอร์ม E-commerce", desc: "ร้านค้าออนไลน์พร้อมแคตตาล็อกสินค้า ตะกร้าสินค้า ชำระเงินออนไลน์ และระบบจัดการออร์เดอร์ รองรับธุรกิจทุกขนาด", tags: ["Next.js", "Laravel API", "Payment Gateway"], stat: "เริ่มต้น $800", statLabel: "ราคาเริ่มต้น" },
-      { num: "03", title: "ระบบจอง & นัดหมาย", desc: "แพลตฟอร์มนัดหมายและจองบริการสำหรับคลินิก ร้านทำผม โรงแรม และผู้จัดงาน พร้อมปฏิทินว่างและแจ้งเตือนอัตโนมัติ", tags: ["Laravel", "Calendar API", "SMS/Email"], stat: "4-10 สัปดาห์", statLabel: "กรอบเวลาพัฒนา" },
-      { num: "04", title: "แพลตฟอร์ม Marketplace", desc: "แพลตฟอร์มหลายผู้ขายเชื่อมต่อผู้ซื้อและผู้ขาย พัฒนาแบบกำหนดเองพร้อมระบบรับสมัครผู้ขาย การชำระเงิน และจัดการคอมมิชชัน", tags: ["Next.js", "Laravel", "Custom"], stat: "12+ สัปดาห์", statLabel: "ส่งมอบแบบกำหนดเอง" },
-      { num: "05", title: "แอปพลิเคชันมือถือ", desc: "แอป iOS & Android พัฒนาด้วย React Native สำหรับผู้บริโภค แพลตฟอร์มคอมพาเนียน หรือเครื่องมือภายในองค์กร กำหนดขอบเขตตามวิสัยทัศน์ผลิตภัณฑ์ของคุณ", tags: ["React Native", "Expo", "iOS & Android"], stat: "8-16+ สัปดาห์", statLabel: "กรอบเวลาพัฒนา" },
+      { num: "01", title: "พัฒนาเว็บไซต์ธุรกิจ", benefit: "สร้างความน่าเชื่อถือและรับลูกค้าตลอด 24 ชม.", desc: "เว็บไซต์มืออาชีพสำหรับบริษัท สตาร์ทอัพ และแบรนด์ต่างๆ รองรับทุกหน้าจอ โครงสร้าง SEO ครบถ้วน พร้อม CMS และฟอร์มรับลูกค้า", tags: ["Next.js", "Tailwind CSS", "Headless CMS"], stat: "2-8 สัปดาห์", statLabel: "กรอบเวลาส่งมอบ" },
+      { num: "02", title: "แพลตฟอร์ม E-commerce", benefit: "ขายออนไลน์ได้ตลอดเวลา", desc: "ร้านค้าออนไลน์พร้อมแคตตาล็อกสินค้า ตะกร้าสินค้า ชำระเงินออนไลน์ และระบบจัดการออร์เดอร์ รองรับธุรกิจทุกขนาด", tags: ["Next.js", "Laravel API", "Payment Gateway"], stat: "เริ่มต้น $800", statLabel: "ราคาเริ่มต้น" },
+      { num: "03", title: "ระบบจอง & นัดหมาย", benefit: "เติมคิวนัดหมายให้เต็มโดยอัตโนมัติ", desc: "แพลตฟอร์มนัดหมายและจองบริการสำหรับคลินิก ร้านทำผม โรงแรม และผู้จัดงาน พร้อมปฏิทินว่างและแจ้งเตือนอัตโนมัติ", tags: ["Laravel", "Calendar API", "SMS/Email"], stat: "4-10 สัปดาห์", statLabel: "กรอบเวลาพัฒนา" },
+      { num: "04", title: "แพลตฟอร์ม Marketplace", benefit: "เชื่อมผู้ซื้อและผู้ขายในระดับสเกล", desc: "แพลตฟอร์มหลายผู้ขายเชื่อมต่อผู้ซื้อและผู้ขาย พัฒนาแบบกำหนดเองพร้อมระบบรับสมัครผู้ขาย การชำระเงิน และจัดการคอมมิชชัน", tags: ["Next.js", "Laravel", "Custom"], stat: "12+ สัปดาห์", statLabel: "ส่งมอบแบบกำหนดเอง" },
+      { num: "05", title: "แอปพลิเคชันมือถือ", benefit: "นำแบรนด์ของคุณไปอยู่ในมือลูกค้าทุกคน", desc: "แอป iOS & Android พัฒนาด้วย React Native สำหรับผู้บริโภค แพลตฟอร์มคอมพาเนียน หรือเครื่องมือภายในองค์กร กำหนดขอบเขตตามวิสัยทัศน์ผลิตภัณฑ์ของคุณ", tags: ["React Native", "Expo", "iOS & Android"], stat: "8-16+ สัปดาห์", statLabel: "กรอบเวลาพัฒนา" },
+    ],
+  },
+  whyUs: {
+    badge: "ทำไมต้อง InnoLab",
+    heading1: "มากกว่าแค่โค้ด -",
+    headingItalic: "คือผลลัพธ์ทางธุรกิจจริง",
+    sub: "เราไม่ใช่แค่ผู้สร้าง แต่เป็นพาร์ทเนอร์การเติบโตที่เปลี่ยนตัวตนดิจิทัลของคุณให้เป็นผลลัพธ์ทางธุรกิจที่วัดผลได้",
+    items: [
+      { title: "สร้างขึ้นเพื่อเพิ่มรายได้", desc: "ทุกการตัดสินใจด้านดีไซน์และฟีเจอร์เชื่อมโยงกับผลกำไรของคุณ - ลูกค้ามากขึ้น ยอดขายมากขึ้น ไม่ใช่แค่สวยงาม" },
+      { title: "ราคาชัดเจน คงที่", desc: "คุณได้ใบเสนอราคาที่โปร่งใสก่อนเริ่มงาน ไม่มีค่าใช้จ่ายแอบแฝง ไม่มีเซอร์ไพรส์ - ต้นทุนคาดเดาได้พร้อมกรอบเวลาที่แน่นอน" },
+      { title: "คุณเป็นเจ้าของทุกอย่าง", desc: "เว็บไซต์ โค้ด เนื้อหา และบัญชีทั้งหมดเป็นของคุณ 100% ไม่มีการผูกมัด ไม่ถูกจับเป็นตัวประกันโดยเอเจนซี" },
+      { title: "ทีมเดียว ครบวงจร", desc: "ดีไซน์ พัฒนา การตลาด และแบรนด์ อยู่ภายใต้หลังคาเดียวกัน - ไม่มีการโยนความรับผิดชอบกันเมื่อเกิดปัญหา" },
+    ],
+  },
+  industries: {
+    badge: "ลูกค้าของเรา",
+    heading1: "สร้างขึ้นเพื่อ",
+    headingItalic: "อุตสาหกรรมของคุณ",
+    sub: "เราส่งมอบงานให้ลูกค้าหลากหลายกลุ่ม - และเราเข้าใจภาษาธุรกิจของคุณ",
+    items: [
+      { name: "ค้าปลีก & E-commerce", desc: "ร้านค้าออนไลน์ แคตตาล็อกสินค้า และระบบชำระเงินที่เพิ่มยอดขาย" },
+      { name: "สุขภาพ & เวลเนส", desc: "คลินิก ร้านทำผม และสตูดิโอ พร้อมระบบจองออนไลน์ในตัว" },
+      { name: "โรงแรม & ท่องเที่ยว", desc: "โรงแรม ร้านอาหาร และผู้จัดทัวร์ พร้อมระบบการจอง" },
+      { name: "ก่อสร้าง & อสังหาฯ", desc: "เว็บไซต์องค์กรและแดชบอร์ดสำหรับจัดการโปรเจกต์และลูกค้า" },
+      { name: "การศึกษา & องค์กรไม่แสวงกำไร", desc: "แพลตฟอร์ม เครื่องมือเรียนรู้ และตรวจสอบระบบ - รวมถึง UNESCO" },
+      { name: "สตาร์ทอัพ & แบรนด์", desc: "เว็บไซต์และแอปพร้อมเปิดตัวที่สร้างความประทับใจแรกที่แข็งแกร่ง" },
+    ],
+  },
+  faq: {
+    badge: "คำถามที่พบบ่อย",
+    heading1: "ทุกคำถาม",
+    headingItalic: "มีคำตอบ",
+    sub: "ทุกสิ่งที่คุณควรรู้ก่อนเริ่มโปรเจกต์กับเรา",
+    items: [
+      { q: "โปรเจกต์มีค่าใช้จ่ายเท่าไร?", a: "โปรเจกต์เริ่มต้นประมาณ $500 สำหรับเว็บไซต์ทั่วไป และปรับตามความซับซ้อน หลังการพูดคุยเบื้องต้น เราจะให้ใบเสนอราคาที่ชัดเจนและคงที่ ไม่มีค่าใช้จ่ายแอบแฝง" },
+      { q: "ใช้เวลานานแค่ไหน?", a: "เว็บไซต์ส่วนใหญ่เปิดตัวภายใน 2-8 สัปดาห์ แพลตฟอร์มและแอปขนาดใหญ่ใช้เวลานานกว่า ไม่ว่ากรณีใด คุณจะได้กรอบเวลาที่แน่นอนก่อนเริ่มงาน" },
+      { q: "ฉันเป็นเจ้าของเว็บไซต์และโค้ดหรือไม่?", a: "ใช่ 100% ทุกอย่างที่เราสร้างเป็นของคุณ - โค้ด ดีไซน์ เนื้อหา และบัญชีทั้งหมด ไม่มีการผูกมัด" },
+      { q: "ฉันไม่มีความรู้ด้านเทคนิค จะเป็นปัญหาไหม?", a: "ไม่เลย เราดูแลด้านเทคนิคทั้งหมดและอธิบายทุกอย่างด้วยภาษาที่เข้าใจง่าย คุณแค่โฟกัสที่ธุรกิจของคุณ" },
+      { q: "มีบริการสนับสนุนหลังเปิดตัวไหม?", a: "มี เราฝึกอบรมทีมของคุณ ส่งมอบเอกสาร และมีแผนสนับสนุนต่อเนื่อง คุณจะไม่ถูกทิ้งให้โดดเดี่ยว" },
+      { q: "ช่วยเรื่องการตลาดได้ด้วยไหม?", a: "ได้แน่นอน นอกจากการสร้างแล้ว เรายังทำ Meta & Google Ads, SEO และออกแบบแบรนด์เพื่อนำลูกค้ามาหาคุณจริงๆ" },
     ],
   },
   process: {
@@ -363,18 +465,58 @@ const zh: Translations = {
     activeProject: "进行中项目",
     avgGrowth: "客户平均增长",
   },
-  partners: { title: "我们精通的技术与平台" },
+  partners: { title: "我们使用的技术工具" },
   services: {
     badge: "我们的服务",
     heading1: "服务 &",
     headingItalic: "产品",
     sub: "从专业企业网站到复杂数字平台生态系统 - 我们构建推动业务增长的数字产品",
     items: [
-      { num: "01", title: "企业网站开发", desc: "为公司、初创企业和品牌打造专业响应式网站，含SEO优化结构、内容管理系统及潜在客户表单，数周内交付。", tags: ["Next.js", "Tailwind CSS", "Headless CMS"], stat: "2-8周", statLabel: "交付周期" },
-      { num: "02", title: "电商平台开发", desc: "在线商城配备完整商品目录、购物车、安全结账和支付集成，可管理订单、库存及客户关系。", tags: ["Next.js", "Laravel API", "Payment Gateway"], stat: "起价$800", statLabel: "起始投资" },
-      { num: "03", title: "预约管理系统", desc: "为诊所、美发沙龙、酒店和活动主办方定制预约调度平台，含日历管理、预约表单及自动通知。", tags: ["Laravel", "Calendar API", "SMS/Email"], stat: "4-10周", statLabel: "开发周期" },
-      { num: "04", title: "多商户平台", desc: "连接买家与卖家的多商户数字市场，包含商家入驻、交易流程、佣金管理及评价系统，深度定制化。", tags: ["Next.js", "Laravel", "Custom"], stat: "12+周", statLabel: "定制化交付" },
-      { num: "05", title: "移动应用开发", desc: "使用React Native开发iOS及Android应用，涵盖消费者应用、平台配套应用及企业内部工具，按产品愿景逐项定制。", tags: ["React Native", "Expo", "iOS & Android"], stat: "8-16+周", statLabel: "开发周期" },
+      { num: "01", title: "企业网站开发", benefit: "全天候赢得信任、获取客户", desc: "为公司、初创企业和品牌打造专业响应式网站，含SEO优化结构、内容管理系统及潜在客户表单，数周内交付。", tags: ["Next.js", "Tailwind CSS", "Headless CMS"], stat: "2-8周", statLabel: "交付周期" },
+      { num: "02", title: "电商平台开发", benefit: "全天候在线销售", desc: "在线商城配备完整商品目录、购物车、安全结账和支付集成，可管理订单、库存及客户关系。", tags: ["Next.js", "Laravel API", "Payment Gateway"], stat: "起价$800", statLabel: "起始投资" },
+      { num: "03", title: "预约管理系统", benefit: "自动填满您的预约日程", desc: "为诊所、美发沙龙、酒店和活动主办方定制预约调度平台，含日历管理、预约表单及自动通知。", tags: ["Laravel", "Calendar API", "SMS/Email"], stat: "4-10周", statLabel: "开发周期" },
+      { num: "04", title: "多商户平台", benefit: "规模化连接买家与卖家", desc: "连接买家与卖家的多商户数字市场，包含商家入驻、交易流程、佣金管理及评价系统，深度定制化。", tags: ["Next.js", "Laravel", "Custom"], stat: "12+周", statLabel: "定制化交付" },
+      { num: "05", title: "移动应用开发", benefit: "让您的品牌触手可及", desc: "使用React Native开发iOS及Android应用，涵盖消费者应用、平台配套应用及企业内部工具，按产品愿景逐项定制。", tags: ["React Native", "Expo", "iOS & Android"], stat: "8-16+周", statLabel: "开发周期" },
+    ],
+  },
+  whyUs: {
+    badge: "为何选择 InnoLab",
+    heading1: "不止于代码 -",
+    headingItalic: "更是真实的业务成果",
+    sub: "我们不只是开发者，更是您的增长伙伴，将您的数字形象转化为可衡量的业务成果。",
+    items: [
+      { title: "为增长收入而生", desc: "每一个设计与功能决策都与您的利润挂钩 - 更多线索、更多销售、更多客户，而不仅仅是好看。" },
+      { title: "清晰固定的报价", desc: "开始前您即获得透明报价。没有按小时计费的意外，没有隐藏费用 - 成本可预测，时间有保障。" },
+      { title: "您拥有一切", desc: "网站、代码、内容及所有账户100%归您所有。没有锁定，绝不被代理机构挟持。" },
+      { title: "一个团队，端到端", desc: "设计、开发、营销与品牌全在一个屋檐下 - 出现问题时不会相互推诿。" },
+    ],
+  },
+  industries: {
+    badge: "我们的客户",
+    heading1: "为您的",
+    headingItalic: "行业而打造",
+    sub: "我们已为各行各业的客户交付项目 - 我们懂您的业务语言。",
+    items: [
+      { name: "零售与电商", desc: "在线商城、商品目录及高转化的结账流程。" },
+      { name: "健康与健身", desc: "诊所、沙龙与工作室，内置在线预约系统。" },
+      { name: "酒店与旅游", desc: "酒店、餐厅及旅行社的预订系统。" },
+      { name: "建筑与房地产", desc: "用于项目与客户管理的企业网站及管理面板。" },
+      { name: "教育与非营利", desc: "平台、学习工具与系统审查 - 包括 UNESCO。" },
+      { name: "初创与品牌", desc: "可快速上线的网站与应用，留下强有力的第一印象。" },
+    ],
+  },
+  faq: {
+    badge: "常见问题",
+    heading1: "您的疑问，",
+    headingItalic: "我们解答",
+    sub: "在与我们启动项目之前，您需要了解的一切。",
+    items: [
+      { q: "一个项目需要多少费用？", a: "简单网站起价约 $500，并随复杂度递增。经过简短的需求沟通后，我们会提供清晰、固定的报价 - 绝无隐藏费用。" },
+      { q: "需要多长时间？", a: "大多数网站在 2-8 周内上线。更大型的平台和移动应用需要更长时间；无论哪种情况，开工前您都会获得确定的时间表。" },
+      { q: "我拥有网站和代码吗？", a: "是的，100%拥有。我们构建的一切都归您所有 - 代码、设计、内容及所有账户，绝无锁定。" },
+      { q: "我不懂技术，会有问题吗？", a: "完全不会。我们负责所有技术工作，并用通俗易懂的语言解释一切，让您专注于经营业务。" },
+      { q: "上线后提供支持吗？", a: "提供。我们会培训您的团队、移交文档，并提供持续的支持计划，绝不会让您孤立无援。" },
+      { q: "也能帮忙做营销吗？", a: "当然可以。除了开发，我们还运营 Meta 与 Google 广告、SEO 及品牌设计，真正为您带来客户。" },
     ],
   },
   process: {

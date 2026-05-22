@@ -63,7 +63,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 sm:py-28 lg:py-32 relative px-5 sm:px-8 lg:px-12" ref={ref}>
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 relative px-5 sm:px-8 lg:px-12" ref={ref}>
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="reveal text-center mb-10 sm:mb-16">
           <span className="badge">{c.badge}</span>

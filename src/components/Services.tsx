@@ -38,7 +38,7 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" className="py-20 sm:py-28 lg:py-32 relative px-5 sm:px-8 lg:px-12" ref={ref}>
+    <section id="services" className="py-16 sm:py-20 lg:py-24 relative px-5 sm:px-8 lg:px-12" ref={ref}>
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="reveal mb-10 sm:mb-16 lg:mb-20">
           <span className="badge">{t.services.badge}</span>
@@ -58,6 +58,7 @@ export default function Services() {
                 <div>
                   <span className="font-mono text-xs mb-2 block" style={{ color: "var(--text-secondary)" }}>{service.num}</span>
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight">{service.title}</h3>
+                  <p className="text-sm font-semibold mt-1.5" style={{ color: "var(--yellow)" }}>{service.benefit}</p>
                 </div>
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 ml-3"
                   style={{ background: "rgba(91,141,239,0.1)", color: "var(--yellow)", border: "1px solid rgba(91,141,239,0.2)" }}>

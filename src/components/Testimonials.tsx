@@ -72,7 +72,7 @@ export default function Testimonials() {
         .t-marquee-inner:hover { animation-play-state: paused; }
       `}</style>
 
-      <section className="py-20 sm:py-28 lg:py-32 relative" ref={sectionRef}>
+      <section className="py-16 sm:py-20 lg:py-24 relative" ref={sectionRef}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="reveal text-center mb-12 sm:mb-16">
             <span className="badge">{t.testimonials.badge}</span>

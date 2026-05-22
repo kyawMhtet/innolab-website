@@ -90,7 +90,7 @@ export default function Work() {
   }, []);
 
   return (
-    <section id="work" className="py-20 sm:py-28 lg:py-32 relative px-5 sm:px-8 lg:px-12" ref={ref}>
+    <section id="work" className="py-16 sm:py-20 lg:py-24 relative px-5 sm:px-8 lg:px-12" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <div className="reveal flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10 sm:mb-14 lg:mb-16">
           <div>

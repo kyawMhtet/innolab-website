@@ -72,7 +72,7 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="py-20 sm:py-28 lg:py-32 relative px-5 sm:px-8 lg:px-12" ref={ref}>
+    <section id="process" className="py-16 sm:py-20 lg:py-24 relative px-5 sm:px-8 lg:px-12" ref={ref}>
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="reveal text-center mb-12 sm:mb-16 lg:mb-20">
           <span className="badge">{t.process.badge}</span>

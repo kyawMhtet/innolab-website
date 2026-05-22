@@ -16,7 +16,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" data-theme="dark" className="py-20 sm:py-28 lg:py-32 relative px-5 sm:px-8 lg:px-12 bg-cover bg-center bg-no-repeat overflow-hidden" ref={ref} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2000&auto=format&fit=crop")' }}>
+    <section id="about" data-theme="dark" className="py-16 sm:py-20 lg:py-24 relative px-5 sm:px-8 lg:px-12 bg-cover bg-center bg-no-repeat overflow-hidden" ref={ref} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2000&auto=format&fit=crop")' }}>
       {/* Dark overlay to ensure text remains readable */}
       <div className="absolute inset-0 bg-[#0d1117]/50 z-0"></div>
       {/* Subtle gradient overlay for extra depth */}

@@ -28,6 +28,15 @@ export interface Translations {
   partners: {
     title: string;
   };
+  bangkok: {
+    badge: string;
+    heading1: string;
+    headingAccent: string;
+    para: string;
+    stats: { val: string; label: string }[];
+    ctaPrimary: string;
+    ctaSecondary: string;
+  };
   services: {
     badge: string;
     heading1: string;
@@ -186,6 +195,19 @@ const en: Translations = {
     avgGrowth: "Avg Client Growth",
   },
   partners: { title: "Tools We Build With" },
+  bangkok: {
+    badge: "Based in Bangkok",
+    heading1: "Where tradition meets",
+    headingAccent: "digital innovation.",
+    para: "Rooted in Thailand, we craft high-performance digital products for businesses across Southeast Asia and beyond. Our Bangkok studio blends creative precision with technical excellence delivering websites, apps, and platforms that drive real growth.",
+    stats: [
+      { val: "20+", label: "Projects Delivered" },
+      { val: "3", label: "Countries Served" },
+      { val: "100%", label: "Client Satisfaction" },
+    ],
+    ctaPrimary: "Explore Our Services",
+    ctaSecondary: "Start a Project",
+  },
   services: {
     badge: "What We Build",
     heading1: "SERVICES &",
@@ -326,6 +348,19 @@ const th: Translations = {
     avgGrowth: "การเติบโตเฉลี่ยของลูกค้า",
   },
   partners: { title: "เครื่องมือที่เราใช้สร้างผลงาน" },
+  bangkok: {
+    badge: "ตั้งอยู่ในกรุงเทพฯ",
+    heading1: "จุดบรรจบของประเพณีและ",
+    headingAccent: "นวัตกรรมดิจิทัล",
+    para: "เราหยั่งรากอยู่ในประเทศไทย สร้างผลิตภัณฑ์ดิจิทัลประสิทธิภาพสูงให้กับธุรกิจทั่วเอเชียตะวันออกเฉียงใต้และทั่วโลก สตูดิโอกรุงเทพฯ ของเราผสานความแม่นยำเชิงสร้างสรรค์กับความเป็นเลิศด้านเทคนิค — ส่งมอบเว็บไซต์ แอป และแพลตฟอร์มที่ขับเคลื่อนการเติบโตจริง",
+    stats: [
+      { val: "20+", label: "โปรเจกต์ที่ส่งมอบ" },
+      { val: "3", label: "ประเทศที่ให้บริการ" },
+      { val: "100%", label: "ความพึงพอใจลูกค้า" },
+    ],
+    ctaPrimary: "สำรวจบริการของเรา",
+    ctaSecondary: "เริ่มโปรเจกต์",
+  },
   services: {
     badge: "สิ่งที่เราสร้าง",
     heading1: "บริการ &",
@@ -466,6 +501,19 @@ const zh: Translations = {
     avgGrowth: "客户平均增长",
   },
   partners: { title: "我们使用的技术工具" },
+  bangkok: {
+    badge: "扎根曼谷",
+    heading1: "传统与",
+    headingAccent: "数字创新的交汇之处",
+    para: "我们立足泰国，为东南亚及全球企业打造高性能数字产品。我们的曼谷工作室将创意精准与卓越技术融为一体 — 交付真正驱动增长的网站、应用与平台。",
+    stats: [
+      { val: "20+", label: "交付项目" },
+      { val: "3", label: "服务国家" },
+      { val: "100%", label: "客户满意度" },
+    ],
+    ctaPrimary: "探索我们的服务",
+    ctaSecondary: "启动项目",
+  },
   services: {
     badge: "我们的服务",
     heading1: "服务 &",
@@ -599,7 +647,7 @@ interface LocaleContextType {
 
 const LocaleContext = createContext<LocaleContextType>({
   locale: "en",
-  setLocale: () => {},
+  setLocale: () => { },
   t: en,
 });
 

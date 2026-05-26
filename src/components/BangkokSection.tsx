@@ -25,7 +25,7 @@ export default function BangkokSection() {
       ref={ref}
       style={{ background: "var(--bg-dark)" }}
     >
-      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row min-h-[560px] lg:min-h-[620px]">
+      <div className="flex flex-col lg:flex-row min-h-[560px] lg:min-h-[620px]">
 
         {/* ── LEFT: Image Panel ── */}
         <div className="reveal relative w-full lg:w-[52%] h-[320px] sm:h-[400px] lg:h-auto overflow-hidden">
@@ -86,22 +86,6 @@ export default function BangkokSection() {
             </span>
           </div>
 
-          {/* Year / established pill */}
-          <div
-            className="absolute top-6 left-6 rounded-lg px-3 py-1.5"
-            style={{
-              background: "rgba(15,15,15,0.65)",
-              backdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.08)",
-            }}
-          >
-            <span
-              className="font-mono text-xs tracking-widest uppercase"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              Est. 2023
-            </span>
-          </div>
         </div>
 
         {/* ── RIGHT: Content Panel ── */}
@@ -123,7 +107,7 @@ export default function BangkokSection() {
             }}
           />
 
-          <div className="relative z-10">
+          <div className="relative z-10 max-w-[640px]">
             {/* Badge */}
             <div className="reveal mb-5 sm:mb-6">
               <span className="badge">{t.bangkok.badge}</span>

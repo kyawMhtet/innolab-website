@@ -4,6 +4,7 @@ import { useLocale } from "./LocaleContext";
 
 export default function Process() {
   const ref = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
   const { t } = useLocale();
 
   useEffect(() => {
@@ -12,6 +13,16 @@ export default function Process() {
       { threshold: 0.1 }
     );
     ref.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!lineRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { lineRef.current?.classList.add("visible"); observer.disconnect(); } },
+      { threshold: 0.05 }
+    );
+    observer.observe(lineRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -84,7 +95,7 @@ export default function Process() {
         </div>
 
         <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden lg:block"
+          <div ref={lineRef} className="process-line-animated absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden lg:block"
             style={{ background: "linear-gradient(to bottom, transparent, rgba(91,141,239,0.25), transparent)" }} />
           <div className="space-y-6 sm:space-y-10 lg:space-y-12">
             {t.process.stages.map((stage, i) => (

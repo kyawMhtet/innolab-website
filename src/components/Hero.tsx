@@ -40,18 +40,28 @@ export default function Hero() {
           <span className="badge">{t.hero.badge}</span>
         </div>
         <h1
-          className="font-extrabold tracking-tight mb-5 sm:mb-6"
+          className="hero-headline font-extrabold tracking-tight mb-5 sm:mb-6"
           style={{ fontSize: "clamp(2.4rem, 8vw, 7rem)", lineHeight: 1.05 }}
         >
-          {t.hero.headline1}{" "}
-          <span style={{ fontStyle: "italic", color: "var(--yellow)", fontWeight: 800 }}>
-            {t.hero.headlineItalic}
-          </span>{" "}
-          {t.hero.headline2}
-          <br className="hidden sm:block" />
-          {" "}{t.hero.headline3}
-          <br className="hidden sm:block" />
-          {" "}{t.hero.headline4}
+          <span className="hero-line">
+            <span className="hero-line-inner" style={{ animationDelay: "0.15s" }}>
+              {t.hero.headline1}{" "}
+              <span className="shimmer-text" style={{ fontStyle: "italic", fontWeight: 800 }}>
+                {t.hero.headlineItalic}
+              </span>{" "}
+              {t.hero.headline2}
+            </span>
+          </span>
+          <span className="hero-line">
+            <span className="hero-line-inner" style={{ animationDelay: "0.28s" }}>
+              {t.hero.headline3}
+            </span>
+          </span>
+          <span className="hero-line">
+            <span className="hero-line-inner" style={{ animationDelay: "0.41s" }}>
+              {t.hero.headline4}
+            </span>
+          </span>
         </h1>
         <p
           className="mx-auto mb-8 sm:mb-10 leading-relaxed text-sm sm:text-base lg:text-lg"

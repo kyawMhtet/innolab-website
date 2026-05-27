@@ -20,13 +20,13 @@ function CardImage({ src, color, letter }: { src: string; color: string; letter:
         alt=""
         onLoad={() => setStatus("loaded")}
         onError={() => setStatus("error")}
+        className="work-img"
         style={{
           width: "100%",
           height: "100%",
           objectFit: "cover",
           objectPosition: "top",
           opacity: status === "loaded" ? 1 : 0,
-          transition: "opacity 0.5s ease",
           display: "block",
         }}
       />
@@ -97,7 +97,7 @@ export default function Work() {
             <span className="badge">{t.work.badge}</span>
             <h2 className="font-extrabold mt-4 sm:mt-6 leading-none" style={{ fontSize: "clamp(2rem, 7vw, 5rem)" }}>
               {t.work.heading1}<br />
-              <span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 800 }}>{t.work.headingItalic}</span>
+              <span className="shimmer-text" style={{ fontStyle: "italic", fontWeight: 800 }}>{t.work.headingItalic}</span>
             </h2>
           </div>
           <a href="#contact" className="btn-outline w-fit flex-shrink-0">{t.work.viewAll}</a>
@@ -108,7 +108,7 @@ export default function Work() {
             <Link
               key={i}
               href={`/work/${projectSlugs[i]}`}
-              className="glow-card rounded-2xl overflow-hidden group block"
+              className="glow-card tilt-card rounded-2xl overflow-hidden group block"
               style={{ textDecoration: "none", color: "inherit" }}
               data-aos="fade-up"
               data-aos-delay={i * 120}
@@ -119,6 +119,16 @@ export default function Work() {
                   src={works[i].images.hero}
                   color={projectColors[i]}
                   letter={project.title[0]}
+                />
+
+                {/* Brand-color wash on hover */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(to top, ${projectColors[i]}55, transparent 65%)`,
+                    zIndex: 1,
+                    pointerEvents: "none",
+                  }}
                 />
 
                 {/* Tag chip */}

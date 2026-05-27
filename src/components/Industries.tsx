@@ -27,7 +27,7 @@ export default function Industries() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mt-5 sm:mt-6">
             <h2 className="font-extrabold leading-none" style={{ fontSize: "clamp(2rem, 7vw, 5rem)" }}>
               {t.industries.heading1}{" "}
-              <span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 800 }}>{t.industries.headingItalic}</span>
+              <span className="shimmer-text" style={{ fontStyle: "italic", fontWeight: 800 }}>{t.industries.headingItalic}</span>
             </h2>
             <p style={{ color: "var(--text-secondary)", maxWidth: "360px" }} className="text-sm leading-relaxed">{t.industries.sub}</p>
           </div>
@@ -35,7 +35,7 @@ export default function Industries() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {t.industries.items.map((item, i) => (
-            <div key={item.name} className="glow-card rounded-2xl p-6 sm:p-7 flex items-start gap-4" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
+            <div key={item.name} className="glow-card tilt-card rounded-2xl p-6 sm:p-7 flex items-start gap-4" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
               <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
                 style={{ background: "rgba(91,141,239,0.1)", color: "var(--yellow)", border: "1px solid rgba(91,141,239,0.2)" }}>
                 {icons[i]}

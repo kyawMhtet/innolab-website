@@ -78,7 +78,7 @@ export default function Testimonials() {
             <span className="badge">{t.testimonials.badge}</span>
             <h2 className="font-extrabold mt-5 leading-tight" style={{ fontSize: "clamp(1.8rem, 6vw, 4rem)" }}>
               {t.testimonials.heading1}{" "}
-              <span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 800 }}>{t.testimonials.headingItalic}</span>
+              <span className="shimmer-text" style={{ fontStyle: "italic", fontWeight: 800 }}>{t.testimonials.headingItalic}</span>
             </h2>
           </div>
         </div>

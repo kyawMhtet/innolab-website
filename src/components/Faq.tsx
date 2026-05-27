@@ -15,7 +15,7 @@ export default function Faq() {
           </div>
           <h2 className="font-extrabold leading-none mt-5 sm:mt-6" style={{ fontSize: "clamp(2rem, 7vw, 4.5rem)" }}>
             {t.faq.heading1}{" "}
-            <span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 800 }}>{t.faq.headingItalic}</span>
+            <span className="shimmer-text" style={{ fontStyle: "italic", fontWeight: 800 }}>{t.faq.headingItalic}</span>
           </h2>
           <p className="text-sm leading-relaxed mt-4 mx-auto" style={{ color: "var(--text-secondary)", maxWidth: "440px" }}>{t.faq.sub}</p>
         </div>

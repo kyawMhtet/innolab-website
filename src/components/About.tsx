@@ -1,9 +1,39 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocale } from "./LocaleContext";
+
+function AnimatedStat({ val, isVisible }: { val: string; isVisible: boolean }) {
+  const [display, setDisplay] = useState("0");
+  const hasRun = useRef(false);
+
+  useEffect(() => {
+    if (!isVisible || hasRun.current) return;
+    hasRun.current = true;
+    const match = val.match(/^([\d.]+)(.*)$/);
+    if (!match) { setDisplay(val); return; }
+    const num = parseFloat(match[1]);
+    const suffix = match[2] ?? "";
+    const duration = 1400;
+    const startTime = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Number.isInteger(num)
+        ? Math.round(eased * num)
+        : Math.round(eased * num * 10) / 10;
+      setDisplay(`${current}${suffix}`);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [isVisible, val]);
+
+  return <>{display}</>;
+}
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [statsVisible, setStatsVisible] = useState(false);
   const { t } = useLocale();
 
   useEffect(() => {
@@ -12,6 +42,16 @@ export default function About() {
       { threshold: 0.1 }
     );
     ref.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!statsRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStatsVisible(true); observer.disconnect(); } },
+      { threshold: 0.35 }
+    );
+    observer.observe(statsRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -37,10 +77,12 @@ export default function About() {
           </div>
         </div>
 
-        <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-12 sm:mb-16 lg:mb-20">
+        <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-12 sm:mb-16 lg:mb-20" ref={statsRef}>
           {t.about.stats.map((stat) => (
             <div key={stat.label} className="glow-card rounded-2xl p-4 sm:p-6 text-center !bg-[#0f0f0f]/60 backdrop-blur-md !border-white/5">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-1.5 sm:mb-2" style={{ color: "var(--yellow)" }}>{stat.val}</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-1.5 sm:mb-2" style={{ color: "var(--yellow)" }}>
+                <AnimatedStat val={stat.val} isVisible={statsVisible} />
+              </div>
               <div className="text-xs font-mono leading-snug text-white/70">{stat.label}</div>
             </div>
           ))}

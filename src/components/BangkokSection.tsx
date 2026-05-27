@@ -4,6 +4,7 @@ import { useLocale } from "./LocaleContext";
 
 export default function BangkokSection() {
   const ref = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
   const { t } = useLocale();
 
   useEffect(() => {
@@ -16,6 +17,20 @@ export default function BangkokSection() {
     );
     ref.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  // Scroll-based parallax on the hero image
+  useEffect(() => {
+    const onScroll = () => {
+      if (!imgRef.current || !ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      const progress = rect.top / (window.innerHeight + rect.height);
+      const offset = progress * 50;
+      imgRef.current.style.transform = `scale(1.12) translateY(${offset}px)`;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -31,10 +46,11 @@ export default function BangkokSection() {
         <div className="reveal relative w-full lg:w-[52%] h-[320px] sm:h-[400px] lg:h-auto overflow-hidden">
           {/* Main photo */}
           <img
+            ref={imgRef}
             src="/images/bangkok-hero.png"
             alt="Bangkok, Thailand — Wat Arun at golden hour"
             className="absolute inset-0 w-full h-full object-cover object-center"
-            style={{ transform: "scale(1.04)", transition: "transform 8s ease" }}
+            style={{ transform: "scale(1.12)", willChange: "transform" }}
           />
 
           {/* Fade-right gradient so text side bleeds in */}

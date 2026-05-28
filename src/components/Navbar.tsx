@@ -76,7 +76,7 @@ export default function Navbar() {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-20% 0px -75% 0px", threshold: 0 }
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();

@@ -72,13 +72,13 @@ export default function Testimonials() {
         .t-marquee-inner:hover { animation-play-state: paused; }
       `}</style>
 
-      <section className="py-20 sm:py-28 lg:py-32 relative" ref={sectionRef}>
+      <section className="py-16 sm:py-20 lg:py-24 relative" ref={sectionRef}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="reveal text-center mb-12 sm:mb-16">
             <span className="badge">{t.testimonials.badge}</span>
             <h2 className="font-extrabold mt-5 leading-tight" style={{ fontSize: "clamp(1.8rem, 6vw, 4rem)" }}>
               {t.testimonials.heading1}{" "}
-              <span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 800 }}>{t.testimonials.headingItalic}</span>
+              <span className="shimmer-text" style={{ fontStyle: "italic", fontWeight: 800 }}>{t.testimonials.headingItalic}</span>
             </h2>
           </div>
         </div>

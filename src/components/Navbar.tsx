@@ -33,6 +33,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const { theme, toggleTheme } = useTheme();
   const { locale, setLocale, t } = useLocale();
   const isDark = theme === "dark";
@@ -61,11 +62,31 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  // Scroll-spy: highlight the nav item for the section currently in view
+  useEffect(() => {
+    if (pathname !== "/") return;
+    const ids = ["services", "process", "work", "about"];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-20% 0px -75% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, [pathname]);
+
   const navLinks = [
-    { label: t.nav.services, href: hp("#services") },
-    { label: t.nav.process, href: hp("#process") },
-    { label: t.nav.work, href: hp("#work") },
-    { label: t.nav.about, href: hp("#about") },
+    { label: t.nav.services, id: "services", href: hp("#services") },
+    { label: t.nav.process, id: "process", href: hp("#process") },
+    { label: t.nav.work, id: "work", href: hp("#work") },
+    { label: t.nav.about, id: "about", href: hp("#about") },
   ];
 
   return (
@@ -93,10 +114,8 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href}
-                className="text-xs lg:text-sm font-medium tracking-widest uppercase transition-colors duration-200"
-                style={{ color: "var(--text-secondary)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
+                onClick={() => setActiveSection(link.id)}
+                className={`nav-link text-xs lg:text-sm font-medium tracking-widest uppercase${activeSection === link.id ? " active" : ""}`}
               >{link.label}</a>
             </li>
           ))}
@@ -217,8 +236,8 @@ export default function Navbar() {
       <div className="md:hidden" style={{ maxHeight: menuOpen ? "400px" : "0", overflow: "hidden", transition: "max-height 0.3s ease", background: "var(--bg-nav-mobile)", borderBottom: menuOpen ? "1px solid var(--border)" : "none" }}>
         <div style={{ padding: "24px 20px", display: "flex", flexDirection: "column", gap: "20px" }}>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
-              style={{ fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-secondary)", textDecoration: "none" }}>
+            <a key={link.href} href={link.href} onClick={() => { setActiveSection(link.id); setMenuOpen(false); }}
+              style={{ fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: activeSection === link.id ? "var(--yellow)" : "var(--text-secondary)", textDecoration: "none", transition: "color 0.2s ease" }}>
               {link.label}
             </a>
           ))}

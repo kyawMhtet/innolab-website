@@ -65,7 +65,7 @@ export default async function WorkDetailPage({ params }: Props) {
 
           <div className="max-w-7xl mx-auto" style={{ position: "relative" }}>
             {/* Back link */}
-            <a
+            <Link
               href="/#work"
               className="hover:opacity-100 transition-opacity"
               style={{
@@ -86,7 +86,7 @@ export default async function WorkDetailPage({ params }: Props) {
                 <path d="M19 12H5M5 12l7-7M5 12l7 7" />
               </svg>
               All Work
-            </a>
+            </Link>
 
             {/* Tag + Year */}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "clamp(20px, 3vw, 32px)" }}>

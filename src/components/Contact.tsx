@@ -9,8 +9,10 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [selectedType, setSelectedType] = useState("");
   const [selectedBudget, setSelectedBudget] = useState("");
-  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", company: "", phone: "", message: "", startDate: "" });
   const [errors, setErrors] = useState<{name?: 'reqName'; email?: 'reqEmail' | 'invEmail'; message?: 'reqMessage'}>({});
+  const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const ref = useRef<HTMLDivElement>(null);
   const { t } = useLocale();
   const c = t.contact;
@@ -23,6 +25,24 @@ export default function Contact() {
     ref.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!submitted || !ref.current) return;
+    let leftViewport = false;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) {
+        leftViewport = true;
+      } else if (leftViewport) {
+        setSubmitted(false);
+        setStep(1);
+        setSelectedType("");
+        setSelectedBudget("");
+        setForm({ name: "", email: "", company: "", phone: "", message: "", startDate: "" });
+      }
+    }, { threshold: 0.1 });
+    obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [submitted]);
 
   if (submitted) {
     return (
@@ -45,7 +65,7 @@ export default function Contact() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a href="#work" className="btn-primary w-full sm:w-auto justify-center">{c.success.ctaPrimary}</a>
             <button className="btn-outline w-full sm:w-auto justify-center"
-              onClick={() => { setSubmitted(false); setStep(1); setSelectedType(""); setSelectedBudget(""); setForm({ name:"",email:"",company:"",message:"" }); }}>
+              onClick={() => { setSubmitted(false); setStep(1); setSelectedType(""); setSelectedBudget(""); setForm({ name:"",email:"",company:"",phone:"",message:"",startDate:"" }); }}>
               {c.success.ctaSecondary}
             </button>
           </div>
@@ -63,12 +83,12 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 sm:py-28 lg:py-32 relative px-5 sm:px-8 lg:px-12" ref={ref}>
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 relative px-5 sm:px-8 lg:px-12" ref={ref}>
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="reveal text-center mb-10 sm:mb-16">
           <span className="badge">{c.badge}</span>
           <h2 className="font-extrabold mt-6" style={{ fontSize: "clamp(1.8rem, 5vw, 4rem)" }}>
-            {c.heading1}{" "}<span style={{ color: "var(--yellow)", fontStyle: "italic", fontWeight: 800 }}>{c.headingItalic}</span>
+            {c.heading1}{" "}<span className="shimmer-text" style={{ fontStyle: "italic", fontWeight: 800 }}>{c.headingItalic}</span>
           </h2>
           <p className="mt-3 text-sm" style={{ color: "var(--text-secondary)" }}>{c.sub}</p>
         </div>
@@ -179,7 +199,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <label className="text-xs font-mono mb-2 block" style={{ color: "var(--text-secondary)" }}>{c.fields.phone}</label>
-                    <input className="input-field" placeholder={c.fields.phonePH} />
+                    <input className="input-field" placeholder={c.fields.phonePH} value={form.phone} onChange={(e) => setForm({...form, phone: e.target.value})} />
                   </div>
                 </div>
               )}
@@ -198,11 +218,14 @@ export default function Contact() {
                   </div>
                   <div>
                     <label className="text-xs font-mono mb-2 block" style={{ color: "var(--text-secondary)" }}>{c.fields.startDate}</label>
-                    <input className="input-field" placeholder={c.fields.startDatePH} />
+                    <input className="input-field" placeholder={c.fields.startDatePH} value={form.startDate} onChange={(e) => setForm({...form, startDate: e.target.value})} />
                   </div>
                 </div>
               )}
 
+              {submitError && (
+                <p className="mt-4 text-xs text-red-400 text-center">{submitError}</p>
+              )}
               <div className="flex items-center justify-between mt-6 sm:mt-8 pt-5 sm:pt-6 gap-3" style={{ borderTop: "1px solid var(--border)" }}>
                 <button className="btn-outline text-sm" onClick={() => step > 1 && setStep((step-1) as Step)}
                   style={{ opacity: step === 1 ? 0.3 : 1, pointerEvents: step === 1 ? "none" : "auto" }}>
@@ -228,14 +251,28 @@ export default function Contact() {
                     {step === 1 ? c.nav.continue : step === 2 ? c.nav.nextContact : c.nav.nextDetails}
                   </button>
                 ) : (
-                  <button className="btn-primary text-sm" onClick={() => {
+                  <button className="btn-primary text-sm" disabled={loading} onClick={async () => {
                     if (!form.message.trim()) {
                       setErrors({ message: 'reqMessage' });
                       return;
                     }
-                    setSubmitted(true);
+                    setLoading(true);
+                    setSubmitError("");
+                    const res = await fetch("/api/contact", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ ...form, projectType: selectedType, budget: selectedBudget, phone: form.phone }),
+                    });
+                    setLoading(false);
+                    if (res.ok) {
+                      setSubmitted(true);
+                    } else if (res.status === 429) {
+                      setSubmitError("You've already submitted recently. Please wait an hour before trying again.");
+                    } else {
+                      setSubmitError("Something went wrong. Please try again.");
+                    }
                   }}>
-                    {c.nav.submit}
+                    {loading ? "Sending…" : c.nav.submit}
                   </button>
                 )}
               </div>

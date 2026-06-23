@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import AosInit from "./AosInit";
@@ -79,7 +80,7 @@ export default function ServiceDetailLayout({ data }: { data: ServiceData }) {
 
           <div className="max-w-7xl mx-auto" style={{ position: "relative" }}>
             {/* Back link */}
-            <a
+            <Link
               href="/#services"
               className="hover:opacity-100 transition-opacity"
               style={{
@@ -100,7 +101,7 @@ export default function ServiceDetailLayout({ data }: { data: ServiceData }) {
                 <path d="M19 12H5M5 12l7-7M5 12l7 7" />
               </svg>
               All Services
-            </a>
+            </Link>
 
             {/* Badge */}
             <div style={{ marginBottom: "clamp(16px, 2.5vw, 28px)" }}>
@@ -488,7 +489,7 @@ export default function ServiceDetailLayout({ data }: { data: ServiceData }) {
               >
                 {data.ctaDesc}
               </p>
-              <a href="/#contact" className="btn-primary">{data.ctaLabel}</a>
+              <Link href="/#contact" className="btn-primary">{data.ctaLabel}</Link>
             </div>
           </div>
         </section>

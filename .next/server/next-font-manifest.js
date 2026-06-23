@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/kyawmyohtet/innolab-website/src/app/layout\":[\"static/media/98e207f02528a563-s.p.woff2\",\"static/media/d3ebbfd689654d3a-s.p.woff2\",\"static/media/db96af6b531dc71f-s.p.woff2\",\"static/media/636a5ac981f94f8b-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

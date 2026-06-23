@@ -62,24 +62,32 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // Scroll-spy: highlight the nav item for the section currently in view
+  // Scroll-spy: the active nav item is the last tracked section whose top has
+  // scrolled past the trigger line. Recomputed each frame so it also clears
+  // when scrolled back above the first section.
   useEffect(() => {
     if (pathname !== "/") return;
     const ids = ["services", "process", "work", "about"];
-    const sections = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { rootMargin: "-20% 0px -75% 0px", threshold: 0 }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+    let raf: number | null = null;
+    const compute = () => {
+      raf = null;
+      const line = window.innerHeight * 0.25;
+      let current = "";
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= line) current = id;
+      }
+      setActiveSection(current);
+    };
+    const onScroll = () => {
+      if (raf === null) raf = requestAnimationFrame(compute);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    compute();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf !== null) cancelAnimationFrame(raf);
+    };
   }, [pathname]);
 
   const navLinks = [
@@ -114,7 +122,6 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href}
-                onClick={() => setActiveSection(link.id)}
                 className={`nav-link text-xs lg:text-sm font-medium tracking-widest uppercase${activeSection === link.id ? " active" : ""}`}
               >{link.label}</a>
             </li>
@@ -236,7 +243,7 @@ export default function Navbar() {
       <div className="md:hidden" style={{ maxHeight: menuOpen ? "400px" : "0", overflow: "hidden", transition: "max-height 0.3s ease", background: "var(--bg-nav-mobile)", borderBottom: menuOpen ? "1px solid var(--border)" : "none" }}>
         <div style={{ padding: "24px 20px", display: "flex", flexDirection: "column", gap: "20px" }}>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => { setActiveSection(link.id); setMenuOpen(false); }}
+            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
               style={{ fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: activeSection === link.id ? "var(--yellow)" : "var(--text-secondary)", textDecoration: "none", transition: "color 0.2s ease" }}>
               {link.label}
             </a>

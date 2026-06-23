@@ -176,6 +176,17 @@ export interface Translations {
     legal: string;
     rights: string;
   };
+  chat: {
+    triggerLabel: string;
+    headerTitle: string;
+    headerSub: string;
+    placeholder: string;
+    send: string;
+    greeting: string;
+    ctaLabel: string;
+    errorMsg: string;
+    thinking: string;
+  };
 }
 
 const en: Translations = {
@@ -328,6 +339,17 @@ const en: Translations = {
     services: ["Business Website", "E-commerce Platform", "Booking System", "Marketplace Platform", "Mobile App"],
     email: "contact@innolabdigitalsolutions.com", whatsapp: "WhatsApp Available", startProject: "Start a Project →",
     privacy: "Privacy Policy", terms: "Terms of Service", legal: "Legal", rights: "All rights reserved.",
+  },
+  chat: {
+    triggerLabel: "Chat with Kei",
+    headerTitle: "Kei",
+    headerSub: "Digital consultant · Innolab",
+    placeholder: "Tell me about your business…",
+    send: "Send",
+    greeting: "Hey! I'm Kei from Innolab. Tell me about your business — I'll help you figure out what digital solution actually makes sense for you.",
+    ctaLabel: "Talk to the team →",
+    errorMsg: "Sorry, something went wrong. Please try again.",
+    thinking: "Thinking…",
   },
 };
 
@@ -482,6 +504,17 @@ const th: Translations = {
     email: "contact@innolabdigitalsolutions.com", whatsapp: "WhatsApp พร้อมให้บริการ", startProject: "เริ่มโปรเจกต์ →",
     privacy: "นโยบายความเป็นส่วนตัว", terms: "ข้อกำหนดการใช้งาน", legal: "กฎหมาย", rights: "สงวนลิขสิทธิ์",
   },
+  chat: {
+    triggerLabel: "คุยกับ Kei",
+    headerTitle: "Kei",
+    headerSub: "ที่ปรึกษาดิจิทัล · Innolab",
+    placeholder: "บอกเล่าเรื่องธุรกิจของคุณ…",
+    send: "ส่ง",
+    greeting: "สวัสดี! ผมชื่อ Kei จาก Innolab เล่าให้ฟังหน่อยได้เลยว่าธุรกิจคุณทำอะไร แล้วผมจะช่วยหาว่าโซลูชันดิจิทัลแบบไหนที่เหมาะกับคุณจริงๆ",
+    ctaLabel: "พูดคุยกับทีม →",
+    errorMsg: "ขออภัย เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
+    thinking: "กำลังคิด…",
+  },
 };
 
 const zh: Translations = {
@@ -634,6 +667,17 @@ const zh: Translations = {
     services: ["企业网站", "电商平台", "预约系统", "多商户平台", "移动应用"],
     email: "contact@innolabdigitalsolutions.com", whatsapp: "WhatsApp 随时可联系", startProject: "启动项目 →",
     privacy: "隐私政策", terms: "服务条款", legal: "法律声明", rights: "版权所有。",
+  },
+  chat: {
+    triggerLabel: "与 Kei 聊天",
+    headerTitle: "Kei",
+    headerSub: "数字顾问 · Innolab",
+    placeholder: "告诉我您的业务情况…",
+    send: "发送",
+    greeting: "您好！我是 Innolab 的 Kei。请告诉我您的业务 — 我会帮您找到真正适合您的数字解决方案。",
+    ctaLabel: "联系我们的团队 →",
+    errorMsg: "抱歉，出现了错误。请重试。",
+    thinking: "思考中…",
   },
 };
 

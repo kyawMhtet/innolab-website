@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeContext";
 import { LocaleProvider } from "@/components/LocaleContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import Interactions from "@/components/Interactions";
+import ChatWidget from "@/components/ChatWidget";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <LocaleProvider>
             {children}
             <ScrollToTop />
+            <ChatWidget />
             <Interactions />
           </LocaleProvider>
         </ThemeProvider>

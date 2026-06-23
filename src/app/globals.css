@@ -380,6 +380,39 @@ textarea.input-field { resize: vertical; min-height: 120px; }
   transform-style: preserve-3d;
 }
 
+/* ── Chat widget animations ── */
+@keyframes chatSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+
+/* Gentle float — pill bobs up and down */
+@keyframes chatFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+/* Glow pulse — shadow breathes with the float */
+@keyframes chatGlow {
+  0%, 100% { box-shadow: 0 4px 18px rgba(255,186,0,0.30); }
+  50%       { box-shadow: 0 8px 32px rgba(255,186,0,0.60), 0 0 0 5px rgba(255,186,0,0.10); }
+}
+
+/* Periodic icon bounce — fires every 6s, wiggles for ~0.6s then rests */
+@keyframes chatIconBounce {
+  0%,  9%, 100% { transform: scale(1)    rotate(0deg);  }
+  2%             { transform: scale(1.25) rotate(-12deg); }
+  4%             { transform: scale(0.88) rotate(8deg);  }
+  6%             { transform: scale(1.10) rotate(-5deg); }
+  8%             { transform: scale(1)    rotate(0deg);  }
+}
+
+/* Shimmer sweep across the pill */
+@keyframes chatShimmer {
+  0%   { transform: translateX(-120%) skewX(-12deg); }
+  100% { transform: translateX(300%)  skewX(-12deg); }
+}
+
 /* ── Accessibility: respect reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

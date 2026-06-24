@@ -44,7 +44,9 @@ export default function ChatWidget() {
   }, [messages, loading]);
 
   useEffect(() => {
-    if (isOpen) inputRef.current?.focus();
+    if (isOpen && window.matchMedia("(hover: hover)").matches) {
+      inputRef.current?.focus();
+    }
   }, [isOpen]);
 
   function handleOpen() {

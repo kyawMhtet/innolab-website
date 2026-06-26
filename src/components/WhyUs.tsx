@@ -16,7 +16,7 @@ export default function WhyUs() {
   const { t } = useLocale();
 
   return (
-    <section id="why" className="py-16 sm:py-20 lg:py-24 relative px-5 sm:px-8 lg:px-12">
+    <section id="why" className="py-16 sm:py-20 lg:py-24 relative px-5 sm:px-8 lg:px-12" style={{ overflow: "visible" }}>
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-10 sm:mb-16 lg:mb-20" data-aos="fade-up">
           <span className="badge">{t.whyUs.badge}</span>

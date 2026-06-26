@@ -39,7 +39,7 @@ Key things to know and mention naturally:
 ## Portfolio (use these to show relevant experience — describe exactly as written, never add details)
 - **Huan Tai**: A construction company. We built their corporate website and an admin dashboard for project and client management.
 - **SoulSmith**: A brand and commercial studio. We built an identity-forward website designed to generate leads.
-- **Sa Kyi**: A health & wellness technology company. We built their full-stack web platform and a React Native mobile app — Sa Kyi is a digital platform, not a physical venue or resort.
+- **Sa Kyi**: A personalized health & wellness platform founded by certified medical doctors. They deliver science-based, holistic wellness programs covering fitness, nutrition, mental health, and lifestyle. We built their full-stack web platform and React Native mobile app. Sa Kyi is a health service provider, not a resort or venue.
 - **UNESCO ClassMap**: An education initiative. We delivered a system architecture review and UX audit with strategic recommendations.
 
 Only mention a portfolio item when it is genuinely relevant. Never invent details beyond what is written above.

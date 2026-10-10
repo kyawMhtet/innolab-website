@@ -157,8 +157,25 @@ export default function ChatWidget() {
                 </svg>
               </div>
               <div>
-                <div style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--text-primary)", lineHeight: 1.2 }}>
-                  {t.chat.headerTitle}
+                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <div style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--text-primary)", lineHeight: 1.2 }}>
+                    {t.chat.headerTitle}
+                  </div>
+                  <span
+                    style={{
+                      fontSize: "0.55rem",
+                      fontFamily: "var(--font-ibm-mono)",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: "var(--text-secondary)",
+                      border: "1px solid var(--border)",
+                      borderRadius: "4px",
+                      padding: "1px 5px",
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    Beta
+                  </span>
                 </div>
                 <div style={{ fontSize: "0.6rem", color: "var(--yellow)", fontFamily: "var(--font-ibm-mono)", letterSpacing: "0.07em", marginTop: "2px", textTransform: "uppercase" }}>
                   {t.chat.headerSub}
@@ -339,6 +356,29 @@ export default function ChatWidget() {
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
             </button>
+          </div>
+
+          {/* Beta disclaimer */}
+          <div
+            style={{
+              borderTop: "1px solid var(--border)",
+              background: "var(--bg-card)",
+              padding: "6px 12px 7px",
+              flexShrink: 0,
+            }}
+          >
+            <p
+              style={{
+                margin: 0,
+                fontSize: "0.6rem",
+                lineHeight: 1.45,
+                textAlign: "center",
+                color: "var(--text-secondary)",
+                opacity: 0.75,
+              }}
+            >
+              {t.chat.disclaimer}
+            </p>
           </div>
         </div>
       )}

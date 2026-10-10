@@ -1,0 +1,15 @@
+INNOLAB DIGITAL SOLUTIONS — CLIENT TESTIMONIALS
+(Source: src/components/LocaleContext.tsx, English content)
+=================================================
+
+1. Mr. Smith — Founder, Empathy Sauce
+"InnoLab transformed our vision into reality with their innovative solutions. The team was professional and attentive."
+
+2. Ko Chan — Marketing Head
+"Exceptional service and attention to detail! The team at InnoLab truly cares about delivering quality work."
+
+3. Ko Alex — CTO
+"Working with InnoLab was an absolute pleasure. They delivered exactly what we needed, on time and with great care!"
+
+4. Ryan — Founder, EcoWave Tech
+"InnoLab's creative direction gave our brand a fresh identity that truly resonates with our audience. The process was smooth, collaborative, and inspiring."

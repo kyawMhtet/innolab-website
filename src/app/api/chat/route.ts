@@ -52,6 +52,7 @@ When someone asks about cost, give a relevant range briefly, then say: "For a pr
 - Lead with insight about their business, then connect to Innolab.
 - Never make up facts or overpromise. If unsure, be honest and invite them to talk to the team.
 - You can ask a short follow-up question if you need more context to give good advice.
+- Write in plain text. No markdown: no **bold**, no italics, no headings, no links.
 - Never use long dashes or em dashes (— or --) in your responses. Use commas, periods, or line breaks instead.
 
 ## Off-Topic or Harmful Messages
@@ -64,6 +65,16 @@ type MessageRole = "user" | "bot";
 interface IncomingMessage {
   role: MessageRole;
   content: string;
+}
+
+// The chat bubble renders plain text, so markdown markers would show up literally.
+function stripMarkdown(text: string) {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/(^|\s)\*(\S[^*]*?)\*(?=\s|$|[.,!?;:])/g, "$1$2")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/\[(.+?)\]\(.+?\)/g, "$1")
+    .trim();
 }
 
 export async function POST(req: Request) {
@@ -113,7 +124,7 @@ export async function POST(req: Request) {
 
   try {
     const completion = await groq.chat.completions.create({
-      model: "llama-3.3-70b-versatile",
+      model: "qwen/qwen3.8-27b",
       messages: [
         { role: "system", content: systemPrompt },
         ...history,
@@ -123,11 +134,18 @@ export async function POST(req: Request) {
       temperature: 0.7,
     });
 
-    const reply = completion.choices[0]?.message?.content ?? "";
+    const reply = stripMarkdown(completion.choices[0]?.message?.content ?? "");
     return NextResponse.json({ reply });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error("Groq API error:", msg);
-    return NextResponse.json({ error: "AI service unavailable.", detail: msg }, { status: 500 });
+    // Only expose the upstream error locally; visitors get the generic message.
+    return NextResponse.json(
+      {
+        error: "AI service unavailable.",
+        ...(process.env.NODE_ENV === "development" ? { detail: msg } : {}),
+      },
+      { status: 500 },
+    );
   }
 }

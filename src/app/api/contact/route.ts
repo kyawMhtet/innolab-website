@@ -3,18 +3,59 @@ import { NextResponse } from "next/server";
 
 const submissions = new Map<string, number>();
 const LIMIT_MS = 60 * 60 * 1000; // 1 hour per IP
+const MAX_FIELD = 2000;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Enquiry fields land straight in an HTML email, so escape before interpolating.
+function esc(value: unknown) {
+  return String(value ?? "")
+    .slice(0, MAX_FIELD)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 export async function POST(req: Request) {
+  // Built per request: a missing key throws in the Resend constructor, which at
+  // module scope would stop the route from loading at all.
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.RESEND_FROM_EMAIL;
+  const to = process.env.RESEND_TO_EMAIL;
+  if (!apiKey || !from || !to) {
+    console.error("Contact form misconfigured: missing RESEND_API_KEY, RESEND_FROM_EMAIL or RESEND_TO_EMAIL");
+    return NextResponse.json({ error: "Email service unavailable." }, { status: 500 });
+  }
+  const resend = new Resend(apiKey);
+
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
   const last = submissions.get(ip);
   if (last && Date.now() - last < LIMIT_MS) {
     return NextResponse.json({ error: "Too many requests. Please try again later." }, { status: 429 });
   }
-  submissions.set(ip, Date.now());
 
-  const { name, email, company, phone, message, startDate, projectType, budget } = await req.json();
+  let body: Record<string, unknown>;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+  }
+
+  const name = esc(body.name);
+  const email = esc(body.email);
+  const company = esc(body.company);
+  const phone = esc(body.phone);
+  const message = esc(body.message);
+  const startDate = esc(body.startDate);
+  const projectType = esc(body.projectType);
+  const budget = esc(body.budget);
+
+  if (!name || !email || !message) {
+    return NextResponse.json({ error: "Name, email and message are required." }, { status: 400 });
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
+  }
 
   const row = (label: string, value: string) =>
     value
@@ -84,16 +125,26 @@ export async function POST(req: Request) {
   `;
 
   const { error } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL!,
-    to: process.env.RESEND_TO_EMAIL!,
-    replyTo: email,
-    subject: `New enquiry from ${name} — ${projectType}`,
+    from,
+    to,
+    replyTo: String(body.email ?? "").slice(0, MAX_FIELD),
+    subject: `New enquiry from ${name}${projectType ? ` - ${projectType}` : ""}`,
     html,
   });
 
   if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("Resend error:", error.message);
+    return NextResponse.json(
+      {
+        error: "Could not send your message. Please try again.",
+        ...(process.env.NODE_ENV === "development" ? { detail: error.message } : {}),
+      },
+      { status: 500 },
+    );
   }
+
+  // Only start the cooldown once the enquiry is actually delivered.
+  submissions.set(ip, Date.now());
 
   return NextResponse.json({ success: true });
 }

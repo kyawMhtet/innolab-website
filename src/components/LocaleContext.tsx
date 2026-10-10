@@ -186,6 +186,7 @@ export interface Translations {
     ctaLabel: string;
     errorMsg: string;
     thinking: string;
+    disclaimer: string;
   };
 }
 
@@ -346,10 +347,11 @@ const en: Translations = {
     headerSub: "Digital consultant · Innolab",
     placeholder: "Tell me about your business…",
     send: "Send",
-    greeting: "Hey! I'm Kei from Innolab. Tell me about your business — I'll help you figure out what digital solution actually makes sense for you.",
+    greeting: "Hey! I'm Kei from Innolab. Tell me about your business. I'll help you figure out what digital solution actually makes sense for you.",
     ctaLabel: "Talk to the team →",
     errorMsg: "Sorry, something went wrong. Please try again.",
     thinking: "Thinking…",
+    disclaimer: "Kei is in beta and can make mistakes. Please confirm important details with our team.",
   },
 };
 
@@ -514,6 +516,7 @@ const th: Translations = {
     ctaLabel: "พูดคุยกับทีม →",
     errorMsg: "ขออภัย เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
     thinking: "กำลังคิด…",
+    disclaimer: "Kei อยู่ในช่วงเบต้าและอาจให้ข้อมูลผิดพลาดได้ กรุณาตรวจสอบข้อมูลสำคัญกับทีมงานของเรา",
   },
 };
 
@@ -674,10 +677,11 @@ const zh: Translations = {
     headerSub: "数字顾问 · Innolab",
     placeholder: "告诉我您的业务情况…",
     send: "发送",
-    greeting: "您好！我是 Innolab 的 Kei。请告诉我您的业务 — 我会帮您找到真正适合您的数字解决方案。",
+    greeting: "您好！我是 Innolab 的 Kei。请告诉我您的业务，我会帮您找到真正适合您的数字解决方案。",
     ctaLabel: "联系我们的团队 →",
     errorMsg: "抱歉，出现了错误。请重试。",
     thinking: "思考中…",
+    disclaimer: "Kei 处于测试阶段，可能会出错。重要信息请与我们的团队核实。",
   },
 };
 
@@ -697,20 +701,16 @@ const LocaleContext = createContext<LocaleContextType>({
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("locale") as Locale | null;
     if (saved && translations[saved]) setLocaleState(saved);
-    setMounted(true);
   }, []);
 
   const setLocale = (l: Locale) => {
     setLocaleState(l);
     localStorage.setItem("locale", l);
   };
-
-  if (!mounted) return null;
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale, t: translations[locale] }}>
